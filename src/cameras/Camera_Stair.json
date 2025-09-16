@@ -1,0 +1,47 @@
+[
+  {
+    "position": [-0.79, 1.10, -1.93],
+    "target": [ 0, 1, 0],
+    "name": "Tổng thể"
+  },
+  {
+    "position": [ 0.12, 0.24, -0.92],
+    "target": [ 0, 0, 0],
+    "name": "Trệt"
+  },
+  {
+    "position": [0.15,0.45,-1],
+    "target": [0, 0.44, 0],
+    "name": "Lửng"
+
+  },
+  {
+    "position": [0, 0.7,-1],
+    "target": [0, 0.7, 0],
+    "name": "Lầu 1"
+    
+  },
+  {
+    "position": [0,1,-1],
+    "target": [0, 1, 0],
+    "name": "Lầu 2"
+    
+  },
+  {
+    "position": [0,1.42,-1],
+    "target": [0, 1.42, 0],
+    "name": "Lầu 3"
+    
+  },
+  {
+    "position": [0.2,1.72,-1],
+    "target": [-0.2, 1.72, 0],
+    "name": "Lầu 4"
+    
+  },{
+    "position": [0.3,2,-1],
+    "target": [-0.1, 1.63, 0],
+    "name": "Sân thượng"
+    
+  }
+]

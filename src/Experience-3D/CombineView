@@ -1,0 +1,53 @@
+import React, { useState, useRef } from "react";
+import { Canvas as R3FCanvas } from "@react-three/fiber";
+import { Stage, Layer, Rect, Text } from "react-konva";
+import Scene from "./Scene"; // component Scene bạn đã có
+import { OrbitControls } from "@react-three/drei";
+
+export default function CombinedView({ models, cameraPositions, isRoomSwitched, stage, 3d }) {
+  const [konvaSelected, setKonvaSelected] = useState(null);
+  const pointerRef = useRef({ x: 0, y: 0 });
+
+  return (
+    <div style={{ position: "relative", width: "100vw", height: "100vh" }}>
+      {/* React Three Fiber Canvas */}
+      <R3FCanvas
+        style={{ position: "absolute", top: 0, left: 0, width: "100%", height: "100%" }}
+        shadows
+        camera={{ position: cameraPositions[0].position, fov: 75 }}
+      >
+        <OrbitControls />
+        <Scene pointerRef={pointerRef} models={models} isRoomSwitched={isRoomSwitched} />
+      </R3FCanvas>
+
+      {/* React Konva Canvas overlay */}
+      <Stage
+        style={{ position: "absolute", top: 0, left: 0, pointerEvents: "auto" /* để nhận input */ }}
+        width={window.innerWidth}
+        height={window.innerHeight}
+      >
+        <Layer>
+          {/* Ví dụ 2D UI: hình chữ nhật hoặc Text */}
+          <Rect
+            x={50}
+            y={50}
+            width={100}
+            height={50}
+            fill={konvaSelected === 1 ? "blue" : "gray"}
+            onClick={() => setKonvaSelected(1)}
+            draggable
+          />
+          <Text
+            x={200}
+            y={50}
+            text="Click me"
+            fontSize={24}
+            fill="black"
+            onClick={() => setKonvaSelected(2)}
+          />
+          {/* Bạn có thể render các UI controls khác, overlay annotation, thao tác mouse,... */}
+        </Layer>
+      </Stage>
+    </div>
+  );
+}
