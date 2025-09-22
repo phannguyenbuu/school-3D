@@ -1,0 +1,218 @@
+
+<script>
+window.editCell = (span) => {
+  span.style.display = 'none';
+  const input = span.nextElementSibling;
+  input.style.display = 'inline-block';
+  input.focus();
+}
+
+window.saveCell = (schoolId, input) => {
+  const newVal = input.value;
+  const span = input.previousElementSibling;
+  const tr = input.closest('tr');
+  const roomId = tr.getAttribute('data-room-id');
+
+  // Gửi dữ liệu mới về backend qua fetch API
+  fetch('/update-room-name', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ school:schoolId, id: roomId, new_name: newVal })
+  }).then(response => {
+    if (response.ok) {
+      // window.location.reload();
+      tr.querySelector(".current-room-name").textContent = newVal;
+      tr.querySelector(".editable-text").textContent = newVal;
+    } else {
+      alert('Lưu tên phòng thất bại');
+      input.style.display = 'none';
+      span.style.display = 'inline';
+    }
+  });
+
+  input.style.display = 'none';
+  span.style.display = 'inline';
+}
+
+window.filterTable = (tableId) => {
+  const input = document.querySelector(`[data-id="${tableId}-searchInput"]`);
+  
+  const filter = input.value.toUpperCase();
+  const table = document.getElementById(tableId);
+  const trs = table.getElementsByTagName('tr');
+
+  console.log('filter', filter);
+  
+  // Nếu ô tìm kiếm trống thì hiển thị hết tất cả hàng
+  if (filter === '') {
+    for (let i = 0; i < trs.length; i++) {
+      trs[i].style.display = '';
+    }
+    const pagination = document.querySelector(`[data-id="${tableId}-pagination"]`);
+    pagination.style.display = '';
+    window.showPage(tableId, 1); // hiển thị trang 1 nếu có phân trang
+    return;
+  }
+
+  let visibleCount = 0;
+  for (let i = 0; i < trs.length; i++) {
+    const td = trs[i].getElementsByClassName('current-room-name')[0];
+    if (td) {
+      const textValue = td.textContent || td.innerText;
+      if (textValue.toUpperCase().indexOf(filter) > -1) {
+        trs[i].style.display = '';
+        visibleCount++;
+      } else {
+        trs[i].style.display = 'none';
+      }
+    }
+  }
+
+  // Khi có search thì ẩn phân trang vì hiện tất cả dòng phù hợp
+  const pagination = document.querySelector(`[data-id="${tableId}-pagination"]`);
+  pagination.style.display = 'none';
+};
+
+
+</script>
+
+
+
+
+<script>
+    const rowsPerPage = 20;
+    let currentPage = 1;
+
+    window.showPage = (tableId, page) => {
+        const tableBody = document.getElementById(tableId);
+        const rows = tableBody.getElementsByTagName('tr');
+        const totalRows = rows.length;
+        const totalPages = Math.ceil(totalRows / rowsPerPage);
+        
+        // Giấu tất cả các hàng
+        for (let i = 0; i < totalRows; i++) {
+            rows[i].style.display = 'none';
+        }
+        
+        // Hiện các hàng trang hiện tại
+        const start = (page - 1) * rowsPerPage;
+        const end = Math.min(start + rowsPerPage, totalRows);
+        for (let i = start; i < end; i++) {
+            rows[i].style.display = '';
+        }
+        
+        // Cập nhật phân trang
+        window.renderPagination(tableId, totalPages, page);
+    }
+
+    window.renderPagination = (tableId, totalPages, currentPage) => {
+        const pagination = document.querySelector(`[data-id="${tableId}-pagination"]`);
+
+        pagination.innerHTML = '';
+
+        // Previous button
+        const prev = document.createElement('button');
+        prev.textContent = 'Previous';
+        prev.disabled = currentPage === 1;
+        prev.onclick = () => {
+            if (currentPage > 1) {
+                window.showPage(tableId, currentPage - 1);
+            }
+        };
+        pagination.appendChild(prev);
+
+        // Page buttons
+        for (let i = 1; i <= totalPages; i++) {
+            const btn = document.createElement('button');
+            btn.textContent = i;
+            if (i === currentPage) {
+                btn.disabled = true;
+            }
+            btn.onclick = () => window.showPage(tableId, i);
+            pagination.appendChild(btn);
+        }
+
+        // Next button
+        const next = document.createElement('button');
+        next.textContent = 'Next';
+        next.disabled = currentPage === totalPages;
+        next.onclick = () => {
+            if (currentPage < totalPages) {
+                window.showPage(tableId, currentPage + 1);
+            }
+        };
+        pagination.appendChild(next);
+    }
+
+    // Khởi tạo hiển thị trang đầu tiên
+    document.addEventListener('DOMContentLoaded', () => {
+        window.showPage('seqTableBody', 1);
+        window.showPage('cisTableBody', 1);
+    });
+</script>
+
+
+<script>
+  function rgbToHex(rgb) {
+    const result = rgb.match(/\d+/g);
+    return "#" + result.map(x => {
+      const hex = parseInt(x).toString(16);
+      return hex.length === 1 ? "0" + hex : hex;
+    }).join('');
+  }
+
+  function updateRoomColor(schoolId, roomId, color) {
+    fetch('/update-room-color', {
+      method: 'POST',
+      headers: {'Content-Type': 'application/json'},
+      body: JSON.stringify({school:schoolId, id: roomId, color})
+    }).then(res => {
+      if (!res.ok) throw new Error('Update failed');
+      return res.json();
+    }).then(data => {
+      console.log('Update success', data);
+    }).catch(e => {
+      console.error(e);
+    });
+  }
+
+  function triggerPickColor(tableId, div) {
+    const colorPicker = document.getElementById(`${tableId}-colorPicker`);
+    colorPicker.value = rgbToHex(div.style.backgroundColor); // chuyển màu từ rgb sang hex
+    colorPicker.style.display = 'block';
+    colorPicker.style.position = 'absolute';
+    // đặt vị trí color picker ngay chỗ click hoặc div
+    const rect = div.getBoundingClientRect();
+    colorPicker.style.left = rect.left + 'px';
+    colorPicker.style.top = rect.top + 'px';
+    colorPicker.focus();
+    colorPicker.click();
+
+    colorPicker.oninput = (e) => {
+      const newColor = e.target.value;
+      div.style.backgroundColor = newColor;
+
+      document.querySelectorAll("[type='color']").forEach(el => el.style.display = 'none');
+
+      // Gửi màu mới về backend giống cách bạn cập nhật tên phòng (ví dụ AJAX fetch)
+      updateRoomColor(tableId.includes('seq') ? 'seq': 'cis', div.getAttribute('data-room-id'), newColor);
+    };
+  }
+
+  document.addEventListener('DOMContentLoaded', () => {
+    document.querySelectorAll('.seq-color-selector').forEach(div => {
+      // console.log('div', div);
+      div.addEventListener('click', () => {
+        triggerPickColor('seqTableBody', div);
+        
+      });
+    });
+
+    document.querySelectorAll('.cis-color-selector').forEach(div => {
+      // console.log('div', div);
+      div.addEventListener('click', () => {
+        triggerPickColor('cisTableBody', div);
+      });
+    });
+  });
+</script>

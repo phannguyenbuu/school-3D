@@ -16,6 +16,29 @@ app = Flask(__name__,
 def data_ready():
     return {"ready": True}
 
+@app.route('/update-room-color', methods=['POST'])
+def update_room_color():
+    data = request.get_json()
+    school_id = data.get('school')
+    room_id = data.get('id')
+    color = data.get('color')
+   
+    parent_dir = os.path.dirname(base_path)
+    json_file_path = os.path.join(parent_dir,'models',
+                            'school_1_room.json' if school_id == 'seq' else 'school_2_room.json')
+    
+
+    # print(school_id, room_id, color, json_file_path)
+    data = load_json_school(json_file_path)
+
+    for i,room in enumerate(data):
+        if str(i) == room_id:
+            data[i]["color"] = color
+
+    save_json(data, json_file_path)
+
+    return jsonify({"status": "success"})
+
 @app.route('/update-room-name', methods=['POST'])
 def update_room_name():
     data = request.get_json()
@@ -64,30 +87,32 @@ def index():
     school_1_path = os.path.join(parent_dir,'models','school_1_room.json')
     school_2_path = os.path.join(parent_dir,'models','school_2_room.json')
 
-    if request.method == 'POST':
-        # Nếu POST từ form update tên phòng
-        school_id = request.form.get('school')
-        room_id = request.form.get('room_id')
-        new_name = request.form.get('new_name')
+    # if request.method == 'POST':
+    #     # Nếu POST từ form update tên phòng
+    #     school_id = request.form.get('school')
+    #     room_id = request.form.get('room_id')
+    #     new_name = request.form.get('new_name')
 
-        # Xác định file json tương ứng
-        json_file_path = school_1_path if school_id == 'seq' else school_2_path
+    #     # Xác định file json tương ứng
+    #     json_file_path = school_1_path if school_id == 'seq' else school_2_path
 
-        # Load, sửa dữ liệu
-        data = load_json_school(json_file_path)
-        for i, room in enumerate(data):
-            if str(i) == room_id:
-                data[i]['text'] = new_name
+    #     # Load, sửa dữ liệu
+    #     data = load_json_school(json_file_path)
+    #     for i, room in enumerate(data):
+    #         if str(i) == room_id:
+    #             data[i]['text'] = new_name
 
-        # Lưu lại json
-        save_json(data, json_file_path)
+    #     # Lưu lại json
+    #     save_json(data, json_file_path)
 
     # Load lại dữ liệu mới để render
     data_1 = load_json_school(school_1_path)
     data_2 = load_json_school(school_2_path)
 
-    return render_template('index.html', data_1=data_1, data_2=data_2)
+    return render_template('index.html', data_1=data_1,
+                           data_1_json= json.dumps(data_1),  
+                           data_2=data_2,
+                           data_2_json= json.dumps(data_2),  )
 
 if __name__ == "__main__":
-    # run_web_form()
-    app.run(debug=True)
+    app.run(debug=True, port=5006, host='0.0.0.0')

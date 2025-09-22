@@ -10,8 +10,8 @@
             -628.0,
             321.0
         ],
-        "text": "A101 CLASS 4.1",
-        "color": "#b95c66"
+        "text": "A101 CLASS 4.1 MEMO",
+        "color": "#7cb95b"
     },
     {
         "level": 0,
@@ -25,7 +25,7 @@
             277.0
         ],
         "text": "A101 MEDIA ROOM",
-        "color": "#b95c66"
+        "color": "#e2f202"
     },
     {
         "level": 0,
@@ -122,7 +122,7 @@
             -538.0,
             321.0
         ],
-        "text": "B104 MUSIC (PRIMARY)",
+        "text": "B104 MUSIC (PRIMARY) Binary",
         "color": "#c18855"
     },
     {
@@ -276,7 +276,7 @@
             -178.0,
             321.0
         ],
-        "text": "C101 MULTI-PURPOSE",
+        "text": "C101 MULTI",
         "color": "#c18855"
     },
     {
@@ -920,7 +920,7 @@
             -271.0,
             320.0
         ],
-        "text": "OUTDOOR GYM",
+        "text": "OUTDOOR GYM Edit",
         "color": "#F7EAD0"
     },
     {

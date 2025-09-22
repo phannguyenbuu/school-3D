@@ -1,0 +1,215 @@
+
+<script src="https://cdn.jsdelivr.net/npm/konva@8.3.5/konva.min.js"></script>
+<script>
+  
+  const stage = new Konva.Stage({
+    container: 'konva-container',
+    width: window.innerWidth / 2 - 20,
+    height: 400,
+  });
+
+  // Tạo Layer để thêm hình
+  const layer = new Konva.Layer();
+  stage.add(layer);
+
+  window.drawShapes = (tableId) => {
+    layer.destroyChildren();
+    layer.draw();  
+
+    const tbody = document.getElementById(tableId);
+    const rooms = JSON.parse(tbody.getAttribute('data-rooms'));
+
+    let minX = Infinity, minY = Infinity, maxX = -Infinity, maxY = -Infinity;
+    const PLAN_WIDTH = 1000;
+    const PLAN_HEIGHT = 800;
+
+    rooms.forEach(room => {
+
+        if(room.min_point)
+        {
+            const x = room.min_point[0] + Math.floor(room.level / 2) * PLAN_WIDTH;
+            const y = room.min_point[1] + (room.level % 2) * PLAN_HEIGHT;
+
+            const width = room.max_point[0] - room.min_point[0];
+            const height = room.max_point[1] - room.min_point[1];
+
+            minX = Math.min(minX, x);
+            minY = Math.min(minY, y);
+            maxX = Math.max(maxX, x + width);
+            maxY = Math.max(maxY, y + height);
+            
+            const rect = new Konva.Rect({
+            x: x,
+            y: y,
+            width: width,
+            height: height,
+            stroke: room.color,
+            
+            strokeWidth: 1,
+            
+            });
+
+            layer.add(rect);
+
+            const text = new Konva.Text({
+                x: x + width / 2,
+                y: y + height / 2,
+                width: 40,
+                text: room.text,
+                fontSize: 6,
+                fontFamily: 'Calibri',
+                fill: 'black',
+                align: 'center',
+            });
+
+            // Căn chỉnh text cho đúng trung tâm hình chữ nhật
+            text.offsetX(text.width() / 2);
+            text.offsetY(text.height() / 2);
+
+            layer.add(text);
+        } else if (room.points && room.points.length > 0) {
+            const offsetX = Math.floor(room.level / 2) * PLAN_WIDTH;
+            const offsetY = (room.level % 2) * PLAN_HEIGHT;
+
+            const adjustedPoints = [];
+            for (let i = 0; i < room.points.length; i ++) {
+                adjustedPoints.push(room.points[i][0] + offsetX);
+                adjustedPoints.push(room.points[i][1] + offsetY);
+            }
+
+
+            let bbminX = Infinity, bbminY = Infinity, bbmaxX = -Infinity, bbmaxY = -Infinity;
+
+            for (let i = 0; i < adjustedPoints.length; i += 2) {
+                const px = adjustedPoints[i];
+                const py = adjustedPoints[i+1];
+
+                bbminX = Math.min(bbminX, px);
+                bbminY = Math.min(bbminY, py);
+                bbmaxX = Math.max(bbmaxX, px);
+                bbmaxY = Math.max(bbmaxY, py);
+
+
+                minX = Math.min(minX, px);
+                minY = Math.min(minY, py);
+                maxX = Math.max(maxX, px);
+                maxY = Math.max(maxY, py);
+            }
+
+
+            const polygon = new Konva.Line({
+                points: adjustedPoints,
+                stroke: room.color || 'rgba(0,128,255,0.5)',
+                closed: true,
+            });
+            layer.add(polygon);
+
+            const box = polygon.getClientRect();
+
+            const text = new Konva.Text({
+                x: (bbminX + bbmaxX) / 2,  // Tọa độ tâm bounding box
+                y: (bbminY + bbmaxY) / 2,
+                text: room.text,
+                fontSize: 6,
+                width: 40,
+                fontFamily: 'Calibri',
+                fill: 'black',
+                align: 'center',
+            });
+
+            // Di chuyển điểm neo (origin) của text về trung tâm text để căn giữa chính xác
+            text.offsetX(text.width() / 2);
+            text.offsetY(text.height() / 2);
+
+            layer.add(text);
+
+        }
+
+    });
+
+
+    [1, 2, 3, 4].forEach((n, index) => {
+        layer.add(new Konva.Text({
+            x: (1 - (n % 2)) * PLAN_WIDTH + (tableId.includes('sed') ? - PLAN_WIDTH : 0) ,       // Hoặc dùng index % 2 tùy ý
+            y: Math.floor((index) / 2) * PLAN_HEIGHT - 50,  // Dùng index thay vì n
+            text: `LEVEL ${n}`,
+            fontSize: 36,
+            fontFamily: 'Calibri',
+            fill: 'black',
+            align: 'center'
+        }));
+    });
+
+
+    // Di chuyển điểm neo (origin) của text về trung tâm text để căn giữa chính xác
+    
+    
+
+    layer.draw();
+
+
+    const stageWidth = stage.width();
+    const stageHeight = stage.height();
+
+    // Kích thước vùng content
+    const contentWidth = maxX - minX;
+    const contentHeight = maxY - minY;
+
+    // Tính scale vừa vặn với stage (để vừa theo chiều rộng hoặc chiều cao)
+    const scaleX = stageWidth / contentWidth;
+    const scaleY = stageHeight / contentHeight;
+    const scale = Math.min(scaleX, scaleY);
+
+    // Áp scale và dịch chuyển để căn giữa content trong stage
+    stage.scale({ x: scale, y: scale });
+    stage.position({
+        x: -minX * scale + (stageWidth - contentWidth * scale) / 2,
+        y: -minY * scale + (stageHeight - contentHeight * scale) / 2,
+    });
+
+
+    stage.batchDraw();
+
+    // console.log("*",minX,minY,maxX,maxY, stage.width(),stage.height());
+
+    setStageDrag();
+    
+};
+
+document.addEventListener('DOMContentLoaded', () => {
+    window.drawShapes('seqTableBody');
+});
+
+function setStageDrag() {
+    const scaleBy = 1.05;
+
+    stage.on('wheel', (e) => {
+    e.evt.preventDefault();
+
+    const oldScale = stage.scaleX();
+    const pointer = stage.getPointerPosition();
+
+    const mousePointTo = {
+        x: (pointer.x - stage.x()) / oldScale,
+        y: (pointer.y - stage.y()) / oldScale,
+    };
+
+    let direction = e.evt.deltaY > 0 ? 1 : -1;
+
+    const newScale = direction > 0 ? oldScale * scaleBy : oldScale / scaleBy;
+    stage.scale({ x: newScale, y: newScale });
+
+    const newPos = {
+        x: pointer.x - mousePointTo.x * newScale,
+        y: pointer.y - mousePointTo.y * newScale,
+    };
+
+    stage.position(newPos);
+    stage.batchDraw();
+    });
+
+    // Bật draggable stage để pan bằng chuột kéo
+    stage.draggable(true);
+}
+
+</script>
