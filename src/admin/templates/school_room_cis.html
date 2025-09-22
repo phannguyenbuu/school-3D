@@ -1,0 +1,34 @@
+<form method="POST" action="{{ url_for('index') }}">
+    <div class="search-wrapper">
+        <input type="text" id="searchInput" placeholder="Tìm theo tên phòng hiện tại..." 
+            onkeyup="window.filterTable('seqTableBody'); toggleClearBtn()" />
+        <span class="clear-btn" id="clearBtn" onclick="clearSearch()">×</span>
+    </div>
+
+    <table>
+      <thead>
+          <tr>
+          <th style="max-width:10px">STT</th>
+          <th style="max-width:10px">Lầu</th>
+          <th style="max-width:50px">Tên phòng hiện tại</th>
+          <th style="max-width:50px">Tên phòng mới</th>
+          </tr>
+      </thead>
+      <tbody id="cisTableBody">
+          {% for room in data_2 %}
+          <tr data-room-id="{{ loop.index0 }}">
+          <td>{{ loop.index }}</td>
+          <td class="current-level">{% if room.level==0 %}G{% else %}{{ room.level }}{% endif %}</td>
+          <td class="current-room-name">{{ room.text }}</td>
+          <td>
+              <span class="editable-text" onclick="editCell(this)">{{ room.text }}</span>
+              <input type="text" class="edit-input" value="{{ room.text }}" 
+                  style="display:none;" onblur="window.saveCell('cis',this)" />
+          </td>
+          </tr>
+          {% endfor %}
+      </tbody>
+    </table>
+</form>
+
+<div data-id="cisTableBody-pagination"></div>

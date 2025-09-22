@@ -1,0 +1,172 @@
+<form method="POST" action="{{ url_for('index') }}">
+    <input type="search" id="searchInput" placeholder="Tìm theo tên phòng hiện tại..." 
+        onkeyup="window.filterTable('seqTableBody')" style="margin-bottom:10px; width: 300px; padding: 5px;" />
+
+    <table>
+        <thead>
+            <tr>
+            <th style="max-width:10px">STT</th>
+            <th style="max-width:10px">Lầu</th>
+            <th style="max-width:50px">Tên phòng hiện tại</th>
+            <th style="max-width:50px">Tên phòng mới</th>
+            </tr>
+        </thead>
+        <tbody id="seqTableBody">
+            {% for room in data_1 %}
+            <tr data-room-id="{{ loop.index0 }}">
+            <td>{{ loop.index }}</td>
+            <td class="current-level">{% if room.level==0 %}G{% else %}{{ room.level }}{% endif %}</td>
+            <td class="current-room-name">{{ room.text }}</td>
+            <td>
+                <span class="editable-text" onclick="editCell(this)">{{ room.text }}</span>
+                <input type="text" class="edit-input" value="{{ room.text }}" 
+                    style="display:none;" onblur="window.saveCell('seq',this)" />
+            </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</form>
+
+<script>
+window.editCell = (span) => {
+  span.style.display = 'none';
+  const input = span.nextElementSibling;
+  input.style.display = 'inline-block';
+  input.focus();
+}
+
+window.saveCell = (schoolId, input) => {
+  const newVal = input.value;
+  const span = input.previousElementSibling;
+  const tr = input.closest('tr');
+  const roomId = tr.getAttribute('data-room-id');
+
+  // Gửi dữ liệu mới về backend qua fetch API
+  fetch('/update-room-name', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ school:schoolId, id: roomId, new_name: newVal })
+  }).then(response => {
+    if (response.ok) {
+      window.location.reload();
+    } else {
+      alert('Lưu tên phòng thất bại');
+      input.style.display = 'none';
+      span.style.display = 'inline';
+    }
+  });
+
+  input.style.display = 'none';
+  span.style.display = 'inline';
+}
+
+window.filterTable = (tableId) => {
+  const input = document.getElementById('searchInput');
+  const filter = input.value.toUpperCase();
+  const table = document.getElementById(tableId);
+  const trs = table.getElementsByTagName('tr');
+  
+  let visibleCount = 0;
+
+  for (let i = 0; i < trs.length; i++) {
+    const td = trs[i].getElementsByClassName('current-room-name')[0];
+    if (td) {
+      const textValue = td.textContent || td.innerText;
+      if (textValue.toUpperCase().indexOf(filter) > -1) {
+        trs[i].style.display = '';
+        visibleCount++;
+      } else {
+        trs[i].style.display = 'none';
+      }
+    }
+  }
+
+  const pagination = document.querySelector(`[data-id="${tableId}-pagination"]`);
+  
+  if (filter.length > 0) {
+    // Nếu đang search thì ẩn phân trang vì hiển thị đầy đủ các dòng phù hợp
+    pagination.style.display = 'none';
+  } else {
+    // Không search thì hiện lại phân trang và show page 1
+    pagination.style.display = '';
+    window.showPage(tableId, 1);
+  }
+};
+
+</script>
+
+
+<div data-id="seqTableBody-pagination"></div>
+
+<script>
+    const rowsPerPage = 20;
+    let currentPage = 1;
+
+    window.showPage = (tableId, page) => {
+        const tableBody = document.getElementById(tableId);
+        const rows = tableBody.getElementsByTagName('tr');
+        const totalRows = rows.length;
+        const totalPages = Math.ceil(totalRows / rowsPerPage);
+        
+        // Giấu tất cả các hàng
+        for (let i = 0; i < totalRows; i++) {
+            rows[i].style.display = 'none';
+        }
+        
+        // Hiện các hàng trang hiện tại
+        const start = (page - 1) * rowsPerPage;
+        const end = Math.min(start + rowsPerPage, totalRows);
+        for (let i = start; i < end; i++) {
+            rows[i].style.display = '';
+        }
+        
+        // Cập nhật phân trang
+        window.renderPagination(tableId, totalPages, page);
+    }
+
+    window.renderPagination = (tableId, totalPages, currentPage) => {
+        const pagination = document.querySelector(`[data-id="${tableId}-pagination"]`);
+
+        pagination.innerHTML = '';
+
+        // Previous button
+        const prev = document.createElement('button');
+        prev.textContent = 'Previous';
+        prev.disabled = currentPage === 1;
+        prev.onclick = () => {
+            if (currentPage > 1) {
+                window.showPage(tableId, currentPage - 1);
+            }
+        };
+        pagination.appendChild(prev);
+
+        // Page buttons
+        for (let i = 1; i <= totalPages; i++) {
+            const btn = document.createElement('button');
+            btn.textContent = i;
+            if (i === currentPage) {
+                btn.disabled = true;
+            }
+            btn.onclick = () => window.showPage(tableId, i);
+            pagination.appendChild(btn);
+        }
+
+        // Next button
+        const next = document.createElement('button');
+        next.textContent = 'Next';
+        next.disabled = currentPage === totalPages;
+        next.onclick = () => {
+            if (currentPage < totalPages) {
+                window.showPage(tableId, currentPage + 1);
+            }
+        };
+        pagination.appendChild(next);
+    }
+
+    // Khởi tạo hiển thị trang đầu tiên
+    document.addEventListener('DOMContentLoaded', () => {
+        window.showPage('seqTableBody', 1);
+        window.showPage('cisTableBody', 1);
+    });
+</script>
