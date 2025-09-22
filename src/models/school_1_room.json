@@ -1944,5 +1944,1107 @@
         ],
         "text": "RESTROOM FOR STAFF - L4",
         "color": "#a7a8ab"
+    },
+       {
+        "level": -1,
+        "hatchname": "ANSI31",
+        "points": [
+            [
+                -10,
+                0
+            ],
+            [
+                -20,
+                0
+            ],
+            [
+                -20,
+                10
+            ],
+            [
+                -10,
+                10
+            ]
+        ],
+        "text": "---",
+        "color": "#F7EAD0"
+    },
+    {
+        "level": 0,
+        "hatchname": "ANSI31",
+        "min_point": [
+            -150,
+            30
+        ],
+        "max_point": [
+            -150,
+            30
+        ],
+        "text": "L-1",
+        "color": "#F7EAD0"
+    },
+    {
+        "level": 1,
+        "hatchname": "ANSI31",
+        "min_point": [
+            -150,
+            30
+        ],
+        "max_point": [
+            -150,
+            30
+        ],
+        "text": "L-2",
+        "color": "#F7EAD0"
+    },
+    {
+        "level": 2,
+        "hatchname": "ANSI31",
+        "min_point": [
+            -150,
+            30
+        ],
+        "max_point": [
+            -150,
+            30
+        ],
+        "text": "L-3",
+        "color": "#F7EAD0"
+    },
+    {
+        "level": 3,
+        "hatchname": "ANSI31",
+        "min_point": [
+            -150,
+            30
+        ],
+        "max_point": [
+            -150,
+            30
+        ],
+        "text": "L-4",
+        "color": "#F7EAD0"
+    },
+    {
+        "level": 0,
+        "hatchname": "ANSI31",
+        "min_point": [
+            -159.0,
+            505.0
+        ],
+        "max_point": [
+            -124.0,
+            542.0
+        ],
+        "text": "",
+        "color": "#F7EAD0"
+    },
+    {
+        "level": 0,
+        "hatchname": "ANSI31",
+        "min_point": [
+            -182.0,
+            529.0
+        ],
+        "max_point": [
+            -159.0,
+            542.0
+        ],
+        "text": "",
+        "color": "#F7EAD0"
+    },
+    {
+        "level": 0,
+        "hatchname": "ANSI31",
+        "min_point": [
+            -159.0,
+            496.0
+        ],
+        "max_point": [
+            -138.0,
+            505.0
+        ],
+        "text": "",
+        "color": "#F7EAD0"
+    },
+    {
+        "level": 0,
+        "hatchname": "ANSI37",
+        "min_point": [
+            -182.0,
+            453.0
+        ],
+        "max_point": [
+            -138.0,
+            495.0
+        ],
+        "text": "",
+        "color": "#F7EAD0"
+    },
+    {
+        "level": 0,
+        "hatchname": "ANSI37",
+        "min_point": [
+            -182.0,
+            495.0
+        ],
+        "max_point": [
+            -160.0,
+            503.0
+        ],
+        "text": "",
+        "color": "#F7EAD0"
+    },
+    {
+        "level": 0,
+        "hatchname": "ANSI31",
+        "min_point": [
+            -302.0,
+            498.0
+        ],
+        "max_point": [
+            -285.0,
+            504.0
+        ],
+        "text": "",
+        "color": "#F7EAD0"
+    },
+    {
+        "level": 0,
+        "hatchname": "ANSI31",
+        "min_point": [
+            -315.0,
+            454.0
+        ],
+        "max_point": [
+            -272.0,
+            498.0
+        ],
+        "text": "",
+        "color": "#F7EAD0"
+    },
+    {
+        "level": 0,
+        "hatchname": "ANSI31",
+        "min_point": [
+            -138.0,
+            387.0
+        ],
+        "max_point": [
+            -130.0,
+            409.0
+        ],
+        "text": "",
+        "color": "#F7EAD0"
+    },
+    {
+        "level": 0,
+        "hatchname": "ANSI37",
+        "min_point": [
+            -316.0,
+            343.0
+        ],
+        "max_point": [
+            -271.0,
+            357.0
+        ],
+        "text": "",
+        "color": "#F7EAD0"
+    },
+    {
+        "level": 0,
+        "hatchname": "ANSI37",
+        "min_point": [
+            -540.0,
+            454.0
+        ],
+        "max_point": [
+            -494.0,
+            498.0
+        ],
+        "text": "",
+        "color": "#F7EAD0"
+    },
+    {
+        "level": 0,
+        "hatchname": "ANSI37",
+        "min_point": [
+            -316.0,
+            357.0
+        ],
+        "max_point": [
+            -228.0,
+            453.0
+        ],
+        "text": "",
+        "color": "#F7EAD0"
+    },
+    {
+        "level": 0,
+        "hatchname": "AR-CONC",
+        "min_point": [
+            -147.0,
+            375.0
+        ],
+        "max_point": [
+            -138.0,
+            386.0
+        ],
+        "text": "",
+        "color": "#F7EAD0"
+    },
+    {
+        "level": 0,
+        "hatchname": "AR-B816",
+        "min_point": [
+            -202.0,
+            367.0
+        ],
+        "max_point": [
+            -182.0,
+            386.0
+        ],
+        "text": "",
+        "color": "#F7EAD0"
+    },
+    {
+        "level": 0,
+        "hatchname": "AR-B816",
+        "min_point": [
+            -182.0,
+            343.0
+        ],
+        "max_point": [
+            -148.0,
+            386.0
+        ],
+        "text": "",
+        "color": "#F7EAD0"
+    },
+    {
+        "level": 0,
+        "hatchname": "AR-B816",
+        "min_point": [
+            -227.0,
+            343.0
+        ],
+        "max_point": [
+            -202.0,
+            386.0
+        ],
+        "text": "",
+        "color": "#F7EAD0"
+    },
+    {
+        "level": 0,
+        "hatchname": "ANSI31",
+        "min_point": [
+            -583.0,
+            454.0
+        ],
+        "max_point": [
+            -540.0,
+            498.0
+        ],
+        "text": "",
+        "color": "#F7EAD0"
+    },
+    {
+        "level": 0,
+        "hatchname": "ANSI31",
+        "min_point": [
+            -270.0,
+            48.0
+        ],
+        "max_point": [
+            -227.0,
+            321.0
+        ],
+        "text": "",
+        "color": "#F7EAD0"
+    },
+    {
+        "level": 0,
+        "hatchname": "ANSI31",
+        "min_point": [
+            -584.0,
+            234.0
+        ],
+        "max_point": [
+            -270.0,
+            252.0
+        ],
+        "text": "",
+        "color": "#F7EAD0"
+    },
+    {
+        "level": 0,
+        "hatchname": "ANSI31",
+        "min_point": [
+            -628.0,
+            48.0
+        ],
+        "max_point": [
+            -584.0,
+            321.0
+        ],
+        "text": "",
+        "color": "#F7EAD0"
+    },
+    {
+        "level": 0,
+        "hatchname": "ANSI31",
+        "min_point": [
+            -723.0,
+            321.0
+        ],
+        "max_point": [
+            -130.0,
+            343.0
+        ],
+        "text": "",
+        "color": "#F7EAD0"
+    },
+    {
+        "level": 0,
+        "hatchname": "ANSI31",
+        "min_point": [
+            -627.0,
+            343.0
+        ],
+        "max_point": [
+            -605.0,
+            387.0
+        ],
+        "text": "",
+        "color": "#F7EAD0"
+    },
+    {
+        "level": 0,
+        "hatchname": "ANSI31",
+        "min_point": [
+            -723.0,
+            387.0
+        ],
+        "max_point": [
+            -494.0,
+            409.0
+        ],
+        "text": "",
+        "color": "#F7EAD0"
+    },
+    {
+        "level": 0,
+        "hatchname": "ANSI31",
+        "min_point": [
+            -583.0,
+            409.0
+        ],
+        "max_point": [
+            -572.0,
+            454.0
+        ],
+        "text": "",
+        "color": "#F7EAD0"
+    },
+    {
+        "level": 0,
+        "hatchname": "ANSI35",
+        "min_point": [
+            -349.0,
+            279.0
+        ],
+        "max_point": [
+            -316.0,
+            286.0
+        ],
+        "text": "",
+        "color": "#F7EAD0"
+    },
+    {
+        "level": 0,
+        "hatchname": "ANSI35",
+        "min_point": [
+            -360.0,
+            279.0
+        ],
+        "max_point": [
+            -349.0,
+            321.0
+        ],
+        "text": "",
+        "color": "#F7EAD0"
+    },
+    {
+        "level": 0,
+        "hatchname": "ANSI31",
+        "min_point": [
+            -571.0,
+            498.0
+        ],
+        "max_point": [
+            -553.0,
+            504.0
+        ],
+        "text": "",
+        "color": "#F7EAD0"
+    },
+    {
+        "level": 0,
+        "hatchname": "ANSI31",
+        "min_point": [
+            -590.0,
+            470.0
+        ],
+        "max_point": [
+            -583.0,
+            477.0
+        ],
+        "text": "",
+        "color": "#F7EAD0"
+    },
+    {
+        "level": 0,
+        "hatchname": "ANSI31",
+        "min_point": [
+            -584.0,
+            48.0
+        ],
+        "max_point": [
+            -270.0,
+            67.0
+        ],
+        "text": "",
+        "color": "#F7EAD0"
+    },
+    {
+        "level": 0,
+        "hatchname": "AR-BRSTD",
+        "min_point": [
+            -719.0,
+            64.0
+        ],
+        "max_point": [
+            -684.0,
+            111.0
+        ],
+        "text": "",
+        "color": "#F7EAD0"
+    },
+    {
+        "level": 0,
+        "hatchname": "AR-BRSTD",
+        "min_point": [
+            -719.0,
+            111.0
+        ],
+        "max_point": [
+            -678.0,
+            321.0
+        ],
+        "text": "",
+        "color": "#F7EAD0"
+    },
+    {
+        "level": 0,
+        "hatchname": "AR-BRSTD",
+        "min_point": [
+            -719.0,
+            48.0
+        ],
+        "max_point": [
+            -678.0,
+            64.0
+        ],
+        "text": "",
+        "color": "#F7EAD0"
+    },
+    {
+        "level": 0,
+        "hatchname": "AR-BRSTD",
+        "min_point": [
+            -171.0,
+            64.0
+        ],
+        "max_point": [
+            -135.0,
+            111.0
+        ],
+        "text": "",
+        "color": "#F7EAD0"
+    },
+    {
+        "level": 0,
+        "hatchname": "AR-BRSTD",
+        "min_point": [
+            -177.0,
+            111.0
+        ],
+        "max_point": [
+            -135.0,
+            321.0
+        ],
+        "text": "",
+        "color": "#F7EAD0"
+    },
+    {
+        "level": 0,
+        "hatchname": "AR-BRSTD",
+        "min_point": [
+            -177.0,
+            48.0
+        ],
+        "max_point": [
+            -135.0,
+            64.0
+        ],
+        "text": "",
+        "color": "#F7EAD0"
+    },
+    {
+        "level": 1,
+        "hatchname": "ANSI31",
+        "min_point": [
+            -242.0,
+            47.0
+        ],
+        "max_point": [
+            -228.0,
+            321.0
+        ],
+        "text": "",
+        "color": "#F7EAD0"
+    },
+    {
+        "level": 1,
+        "hatchname": "ANSI31",
+        "min_point": [
+            -627.0,
+            47.0
+        ],
+        "max_point": [
+            -613.0,
+            321.0
+        ],
+        "text": "",
+        "color": "#F7EAD0"
+    },
+    {
+        "level": 1,
+        "hatchname": "ANSI31",
+        "min_point": [
+            -677.0,
+            321.0
+        ],
+        "max_point": [
+            -130.0,
+            343.0
+        ],
+        "text": "",
+        "color": "#F7EAD0"
+    },
+    {
+        "level": 1,
+        "hatchname": "ANSI31",
+        "min_point": [
+            -627.0,
+            343.0
+        ],
+        "max_point": [
+            -605.0,
+            387.0
+        ],
+        "text": "",
+        "color": "#F7EAD0"
+    },
+    {
+        "level": 1,
+        "hatchname": "ANSI31",
+        "min_point": [
+            -728.0,
+            387.0
+        ],
+        "max_point": [
+            -539.0,
+            399.0
+        ],
+        "text": "",
+        "color": "#F7EAD0"
+    },
+    {
+        "level": 1,
+        "hatchname": "ANSI31",
+        "min_point": [
+            -250.0,
+            342.0
+        ],
+        "max_point": [
+            -229.0,
+            386.0
+        ],
+        "text": "",
+        "color": "#F7EAD0"
+    },
+    {
+        "level": 1,
+        "hatchname": "ANSI31",
+        "min_point": [
+            -318.0,
+            386.0
+        ],
+        "max_point": [
+            -127.0,
+            408.0
+        ],
+        "text": "",
+        "color": "#F7EAD0"
+    },
+    {
+        "level": 1,
+        "hatchname": "ANSI31",
+        "min_point": [
+            -728.0,
+            399.0
+        ],
+        "max_point": [
+            -717.0,
+            437.0
+        ],
+        "text": "",
+        "color": "#F7EAD0"
+    },
+    {
+        "level": 1,
+        "hatchname": "ANSI37",
+        "min_point": [
+            -494.0,
+            342.0
+        ],
+        "max_point": [
+            -363.0,
+            386.0
+        ],
+        "text": "",
+        "color": "#F7EAD0"
+    },
+    {
+        "level": 1,
+        "hatchname": "ANSI37",
+        "min_point": [
+            -539.0,
+            453.0
+        ],
+        "max_point": [
+            -316.0,
+            497.0
+        ],
+        "text": "",
+        "color": "#F7EAD0"
+    },
+    {
+        "level": 1,
+        "hatchname": "ANSI35",
+        "min_point": [
+            -716.0,
+            400.0
+        ],
+        "max_point": [
+            -702.0,
+            415.0
+        ],
+        "text": "",
+        "color": "#c18855"
+    },
+    {
+        "level": 1,
+        "hatchname": "ANSI37",
+        "min_point": [
+            -227.0,
+            409.0
+        ],
+        "max_point": [
+            -177.0,
+            453.0
+        ],
+        "text": "",
+        "color": "#F7EAD0"
+    },
+    {
+        "level": 1,
+        "hatchname": "ANSI37",
+        "min_point": [
+            -245.0,
+            433.0
+        ],
+        "max_point": [
+            -228.0,
+            452.0
+        ],
+        "text": "",
+        "color": "#F7EAD0"
+    },
+    {
+        "level": 2,
+        "hatchname": "ANSI31",
+        "min_point": [
+            -539.0,
+            377.0
+        ],
+        "max_point": [
+            -318.0,
+            393.0
+        ],
+        "text": "",
+        "color": "#F7EAD0"
+    },
+    {
+        "level": 2,
+        "hatchname": "ANSI31",
+        "min_point": [
+            -242.0,
+            37.0
+        ],
+        "max_point": [
+            -228.0,
+            311.0
+        ],
+        "text": "",
+        "color": "#F7EAD0"
+    },
+    {
+        "level": 2,
+        "hatchname": "ANSI31",
+        "min_point": [
+            -627.0,
+            37.0
+        ],
+        "max_point": [
+            -613.0,
+            312.0
+        ],
+        "text": "",
+        "color": "#F7EAD0"
+    },
+    {
+        "level": 2,
+        "hatchname": "ANSI31",
+        "min_point": [
+            -627.0,
+            333.0
+        ],
+        "max_point": [
+            -605.0,
+            377.0
+        ],
+        "text": "",
+        "color": "#F7EAD0"
+    },
+    {
+        "level": 2,
+        "hatchname": "ANSI31",
+        "min_point": [
+            -728.0,
+            377.0
+        ],
+        "max_point": [
+            -539.0,
+            398.0
+        ],
+        "text": "",
+        "color": "#F7EAD0"
+    },
+    {
+        "level": 2,
+        "hatchname": "ANSI31",
+        "min_point": [
+            -250.0,
+            333.0
+        ],
+        "max_point": [
+            -229.0,
+            377.0
+        ],
+        "text": "",
+        "color": "#F7EAD0"
+    },
+    {
+        "level": 2,
+        "hatchname": "ANSI31",
+        "min_point": [
+            -318.0,
+            377.0
+        ],
+        "max_point": [
+            -127.0,
+            398.0
+        ],
+        "text": "",
+        "color": "#F7EAD0"
+    },
+    {
+        "level": 2,
+        "hatchname": "AR-B816",
+        "min_point": [
+            -605.0,
+            333.0
+        ],
+        "max_point": [
+            -584.0,
+            376.0
+        ],
+        "text": "",
+        "color": "#F7EAD0"
+    },
+    {
+        "level": 2,
+        "hatchname": "AR-B816",
+        "min_point": [
+            -271.0,
+            346.0
+        ],
+        "max_point": [
+            -251.0,
+            355.0
+        ],
+        "text": "",
+        "color": "#F7EAD0"
+    },
+    {
+        "level": 2,
+        "hatchname": "AR-B816",
+        "min_point": [
+            -271.0,
+            355.0
+        ],
+        "max_point": [
+            -251.0,
+            376.0
+        ],
+        "text": "",
+        "color": "#F7EAD0"
+    },
+    {
+        "level": 3,
+        "hatchname": "ANSI31",
+        "min_point": [
+            -242.0,
+            39.0
+        ],
+        "max_point": [
+            -228.0,
+            312.0
+        ],
+        "text": "",
+        "color": "#F7EAD0"
+    },
+    {
+        "level": 3,
+        "hatchname": "ANSI31",
+        "min_point": [
+            -627.0,
+            39.0
+        ],
+        "max_point": [
+            -613.0,
+            313.0
+        ],
+        "text": "",
+        "color": "#F7EAD0"
+    },
+    {
+        "level": 3,
+        "hatchname": "ANSI31",
+        "min_point": [
+            -677.0,
+            312.0
+        ],
+        "max_point": [
+            -605.0,
+            334.0
+        ],
+        "text": "",
+        "color": "#F7EAD0"
+    },
+    {
+        "level": 3,
+        "hatchname": "ANSI31",
+        "min_point": [
+            -252.0,
+            312.0
+        ],
+        "max_point": [
+            -178.0,
+            334.0
+        ],
+        "text": "",
+        "color": "#F7EAD0"
+    },
+    {
+        "level": 3,
+        "hatchname": "ANSI31",
+        "min_point": [
+            -627.0,
+            334.0
+        ],
+        "max_point": [
+            -605.0,
+            378.0
+        ],
+        "text": "",
+        "color": "#F7EAD0"
+    },
+    {
+        "level": 3,
+        "hatchname": "ANSI31",
+        "min_point": [
+            -250.0,
+            334.0
+        ],
+        "max_point": [
+            -229.0,
+            378.0
+        ],
+        "text": "",
+        "color": "#F7EAD0"
+    },
+    {
+        "level": 3,
+        "hatchname": "ANSI31",
+        "min_point": [
+            -728.0,
+            378.0
+        ],
+        "max_point": [
+            -127.0,
+            400.0
+        ],
+        "text": "",
+        "color": "#F7EAD0"
+    },
+    {
+        "level": 3,
+        "hatchname": "AR-B816",
+        "min_point": [
+            -605.0,
+            334.0
+        ],
+        "max_point": [
+            -584.0,
+            377.0
+        ],
+        "text": "",
+        "color": "#F7EAD0"
+    },
+    {
+        "level": 3,
+        "hatchname": "AR-B816",
+        "min_point": [
+            -271.0,
+            348.0
+        ],
+        "max_point": [
+            -251.0,
+            356.0
+        ],
+        "text": "",
+        "color": "#F7EAD0"
+    },
+    {
+        "level": 3,
+        "hatchname": "AR-B816",
+        "min_point": [
+            -271.0,
+            356.0
+        ],
+        "max_point": [
+            -251.0,
+            377.0
+        ],
+        "text": "",
+        "color": "#F7EAD0"
+    },
+    {
+        "level": 2,
+        "hatchname": "ANSI31",
+        "min_point": [
+            -677.0,
+            311.0
+        ],
+        "max_point": [
+            -605.0,
+            333.0
+        ],
+        "text": "",
+        "color": "#F7EAD0"
+    },
+    {
+        "level": 2,
+        "hatchname": "ANSI31",
+        "min_point": [
+            -252.0,
+            311.0
+        ],
+        "max_point": [
+            -178.0,
+            333.0
+        ],
+        "text": "",
+        "color": "#F7EAD0"
+    },
+    {
+        "level": 2,
+        "hatchname": "ANSI37",
+        "min_point": [
+            -237.0,
+            445.0
+        ],
+        "max_point": [
+            -225.0,
+            502.0
+        ],
+        "text": "",
+        "color": "#F7EAD0"
+    },
+    {
+        "level": 0,
+        "hatchname": "ANSI35",
+        "min_point": [
+            -632.0,
+            410.0
+        ],
+        "max_point": [
+            -611.0,
+            453.0
+        ],
+        "text": "",
+        "color": "#F7EAD0"
+    },
+    {
+        "level": 2,
+        "hatchname": "AR-B816",
+        "min_point": [
+            -270.0,
+            343.0
+        ],
+        "max_point": [
+            -251.0,
+            355.0
+        ],
+        "text": "",
+        "color": "#F7EAD0"
+    },
+    {
+        "level": 0,
+        "hatchname": "ANSI31",
+        "min_point": [
+            -250.0,
+            342.0
+        ],
+        "max_point": [
+            -228.0,
+            356.0
+        ],
+        "text": "",
+        "color": "#F7EAD0"
     }
 ]

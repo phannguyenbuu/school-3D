@@ -29,7 +29,7 @@ def update_room_color():
     
 
     # print(school_id, room_id, color, json_file_path)
-    data = load_json_school(json_file_path)
+    data = load_json_school(json_file_path, exclude_empty = False)
 
     for i,room in enumerate(data):
         if str(i) == room_id:
@@ -50,10 +50,9 @@ def update_room_name():
     parent_dir = os.path.dirname(base_path)
     json_file_path = os.path.join(parent_dir,'models',
                             'school_1_room.json' if school_id == 'seq' else 'school_2_room.json')
-    data = load_json_school(json_file_path)
+    data = load_json_school(json_file_path, exclude_empty = False)
 
     for i,room in enumerate(data):
-        # if room["text"].upper() == room_id.upper():
         if str(i) == room_id:
             data[i]["text"] = new_name
 
@@ -65,10 +64,12 @@ def save_json(data, json_file_path):
     with open(json_file_path, 'w', encoding='utf-8') as f:
         json.dump(data, f, ensure_ascii=False, indent=4)
 
-def load_json_school(json_file_path):
+def load_json_school(json_file_path, exclude_empty = True):
     with open(json_file_path, 'r', encoding='utf-8') as f:
         data = json.load(f)
-        data = [el for el in data if el["text"] != '' 
+
+        if exclude_empty:
+            data = [el for el in data if el["text"] != '' 
                 and el["text"] != '---' and not el["text"].startswith('L-')]
 
     return data or []

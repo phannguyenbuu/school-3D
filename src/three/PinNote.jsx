@@ -76,6 +76,7 @@ export default function PinNote({ id, position, hatchname, txt,
         userData={{ tag: txt }}
         onPointerOver={(e) => {
           e.stopPropagation();
+          // setDialogOpen(true);
           setHovered(true);
         }}
         onPointerOut={(e) => {

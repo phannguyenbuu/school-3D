@@ -283,9 +283,9 @@ const Experience = ({ regions, paths, cameraPositions, isRoomSwitched, ...props 
           maxPolarAngle={Math.PI / 2} // Giới hạn góc nhìn xuống dưới
           minPolarAngle={-Math.PI / 2}          // Giới hạn góc nhìn lên trên
           mouseButtons={{
-            LEFT: THREE.MOUSE.PAN,
+            LEFT: THREE.MOUSE.ROTATE,
             MIDDLE: THREE.MOUSE.DOLLY,
-            RIGHT: THREE.MOUSE.ROTATE,
+            RIGHT: THREE.MOUSE.PAN,
           }}
         />
 

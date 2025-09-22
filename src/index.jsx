@@ -164,7 +164,7 @@ function RootApp() {
     </Stack>
 
     <div style={{ position: "fixed",top: '90vh',left: 50}}>
-        <a href='https://360.cis.edu.vn/#cis_foyer' target="_blank">
+        <a href={schoolIndex === 0 ? 'https://sedbergh.edu.vn/virtualtour/':'https://360.cis.edu.vn/#cis_foyer' } target="_blank">
           <img src={`/images/${schoolIndex === 0 ? '360_seq':'360'}.png`} width={120}/>
         </a>
     </div>
