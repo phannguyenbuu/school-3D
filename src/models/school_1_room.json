@@ -10,7 +10,7 @@
             -628.0,
             321.0
         ],
-        "text": "A101 CLASS 4.1 MEMO",
+        "text": "A101 CLASS 4.1",
         "color": "#7cb95b"
     },
     {
@@ -24,7 +24,7 @@
             -628.0,
             277.0
         ],
-        "text": "A101 MEDIA ROOM",
+        "text": "A102 Class 3.4",
         "color": "#e2f202"
     },
     {
@@ -38,7 +38,7 @@
             -628.0,
             235.0
         ],
-        "text": "A101 MEDIA ROOM",
+        "text": "A103 Class 3.3",
         "color": "#b95c66"
     },
     {
@@ -52,7 +52,7 @@
             -628.0,
             193.0
         ],
-        "text": "A103A MULTI",
+        "text": "A104 Class 3.2",
         "color": "#b95c66"
     },
     {
@@ -66,7 +66,7 @@
             -495.0,
             321.0
         ],
-        "text": "B106 ART (PRIMARY)",
+        "text": "B106 Art (Primary)",
         "color": "#c18855"
     },
     {
@@ -80,7 +80,7 @@
             -628.0,
             152.0
         ],
-        "text": "A105 CLASS 3.1",
+        "text": "A105 Class 3.1",
         "color": "#b95c66"
     },
     {
@@ -94,7 +94,7 @@
             -673.0,
             386.0
         ],
-        "text": "B102 SCHOOL CLINICS",
+        "text": "B102 School Clinics",
         "color": "#c18855"
     },
     {
@@ -108,7 +108,7 @@
             -656.0,
             453.0
         ],
-        "text": "B101 WAREHOUSE",
+        "text": "B101 Warehouse",
         "color": "#64454f"
     },
     {
@@ -122,7 +122,7 @@
             -538.0,
             321.0
         ],
-        "text": "B104 MUSIC (PRIMARY) Binary",
+        "text": "B104 Music (Primary)",
         "color": "#c18855"
     },
     {
@@ -136,7 +136,7 @@
             -633.0,
             453.0
         ],
-        "text": "B103 WELLBEING CENTRE",
+        "text": "B103 Wellbwing Centre",
         "color": "#871d2f"
     },
     {
@@ -150,7 +150,7 @@
             -584.0,
             453.0
         ],
-        "text": "B105 SEN",
+        "text": "B105 Home Economics",
         "color": "#c18855"
     },
     {
@@ -164,7 +164,7 @@
             -450.0,
             321.0
         ],
-        "text": "B106 MAKERSPACE FOR PRIMARY",
+        "text": "B106 Makerspace for Primary",
         "color": "#c18855"
     },
     {
@@ -178,7 +178,7 @@
             -495.0,
             453.0
         ],
-        "text": "B107 HOME ECONOMICS",
+        "text": "B107 Drama",
         "color": "#c18855"
     },
     {
@@ -192,7 +192,7 @@
             -405.0,
             321.0
         ],
-        "text": "B108 BIOLOGYLAB",
+        "text": "B108 Markerspace",
         "color": "#c18855"
     },
     {
@@ -206,7 +206,7 @@
             -538.0,
             386.0
         ],
-        "text": "B109 DRAMA",
+        "text": "B109 Dance",
         "color": "#c18855"
     },
     {
@@ -220,7 +220,7 @@
             -361.0,
             321.0
         ],
-        "text": "B110 CHEMISTRYLAB",
+        "text": "B110 Biology Lab",
         "color": "#c18855"
     },
     {
@@ -234,7 +234,7 @@
             -495.0,
             386.0
         ],
-        "text": "B111 DANCE",
+        "text": "B111 School Service Office",
         "color": "#F7EAD0"
     },
     {
@@ -248,7 +248,7 @@
             -271.0,
             321.0
         ],
-        "text": "B112 PHYSICSLAB",
+        "text": "B112 Chemistry Lab",
         "color": "#c18855"
     },
     {
@@ -276,7 +276,7 @@
             -178.0,
             321.0
         ],
-        "text": "C101 MULTI",
+        "text": "C101 Life skills/Multi-function",
         "color": "#c18855"
     },
     {
@@ -290,7 +290,7 @@
             -178.0,
             235.0
         ],
-        "text": "C102 CLASS 2.1",
+        "text": "C102 Class 2.1",
         "color": "#b95c66"
     },
     {
@@ -304,7 +304,7 @@
             -178.0,
             193.0
         ],
-        "text": "C103 CLASS 2.2",
+        "text": "C103 Class 2.2",
         "color": "#b95c66"
     },
     {
@@ -318,7 +318,7 @@
             -178.0,
             152.0
         ],
-        "text": "C104 CLASS 2.3",
+        "text": "C104 Class 2.3",
         "color": "#b95c66"
     },
     {
@@ -514,7 +514,7 @@
             -628.0,
             320.0
         ],
-        "text": "A201 CLASS 4.2",
+        "text": "A201 Class 4.2",
         "color": "#b95c66"
     },
     {
@@ -528,7 +528,7 @@
             -628.0,
             276.0
         ],
-        "text": "A108a Pastoral Office",
+        "text": "A202 Class 4.3",
         "color": "#b95c66"
     },
     {
@@ -542,7 +542,7 @@
             -628.0,
             234.0
         ],
-        "text": "A203 CLASS 5.1",
+        "text": "A203 Class 5.1",
         "color": "#b95c66"
     },
     {
@@ -556,7 +556,7 @@
             -628.0,
             193.0
         ],
-        "text": "A204 CLASS 5.2",
+        "text": "A204 Class 5.2",
         "color": "#b95c66"
     },
     {
@@ -570,7 +570,7 @@
             -628.0,
             151.0
         ],
-        "text": "A205 CLASS 5.3",
+        "text": "A205 Class 5.3",
         "color": "#b95c66"
     },
     {
@@ -598,7 +598,7 @@
             -684.0,
             437.0
         ],
-        "text": "B201 ACCOUNTING",
+        "text": "B201 Accounting Office/London (Meeting Room)",
         "color": "#F7EAD0"
     },
     {
@@ -612,7 +612,7 @@
             -674.0,
             385.0
         ],
-        "text": "B202 PRIMARY TEACHER ROOM",
+        "text": "B202 MOET Teacher's Office",
         "color": "#F7EAD0"
     },
     {
@@ -626,7 +626,7 @@
             -656.0,
             437.0
         ],
-        "text": "B203 ACADEMIC DIRECTOR",
+        "text": "B203 Academic Director's Office",
         "color": "#F7EAD0"
     },
     {
@@ -640,7 +640,7 @@
             -495.0,
             385.0
         ],
-        "text": "B208 STUDENT DEVELOPMENT OFFICE",
+        "text": "B208 Student Development Office",
         "color": "#64454f"
     },
     {
@@ -654,7 +654,7 @@
             -539.0,
             385.0
         ],
-        "text": "B206 School Operations",
+        "text": "B206 Operations Office",
         "color": "#64454f"
     },
     {
@@ -668,7 +668,7 @@
             -562.0,
             385.0
         ],
-        "text": "B204 General Director",
+        "text": "B204 General Director's Office",
         "color": "#64454f"
     },
     {
@@ -682,7 +682,7 @@
             -628.0,
             437.0
         ],
-        "text": "B205 MEETING ROOM-NOTTINGHAM",
+        "text": "B205 MOET Vice Principal's Office",
         "color": "#F7EAD0"
     },
     {
@@ -696,7 +696,7 @@
             -316.0,
             385.0
         ],
-        "text": "B210 ICT(PRIMARY)",
+        "text": "B210 ICT (Primary)",
         "color": "#c18855"
     },
     {
@@ -710,7 +710,7 @@
             -584.0,
             437.0
         ],
-        "text": "B207 SCHOOL LEADERSHIP OFFICE",
+        "text": "B207 Academic Leadership Office",
         "color": "#F7EAD0"
     },
     {
@@ -724,7 +724,7 @@
             -271.0,
             385.0
         ],
-        "text": "B208 Academic",
+        "text": "B208 Student Development Office",
         "color": "#F7EAD0"
     },
     {
@@ -738,7 +738,7 @@
             -540.0,
             437.0
         ],
-        "text": "B209 HEADMISTRESS OFFICE",
+        "text": "B209 Head of School's Office",
         "color": "#F7EAD0"
     },
     {
@@ -752,7 +752,7 @@
             -245.0,
             452.0
         ],
-        "text": "B211 ADMISSIONS",
+        "text": "B211 Admissions Office",
         "color": "#64454f"
     },
     {
@@ -766,7 +766,7 @@
             -228.0,
             433.0
         ],
-        "text": "B211.2 SCHOOL SERVICES OFFICE",
+        "text": "B212 Academic Service Office",
         "color": "#F7EAD0"
     },
     {
@@ -780,7 +780,7 @@
             -177.0,
             541.0
         ],
-        "text": "B213 LIBRARY",
+        "text": "B213 Library/Liverpool (Meeting Room)/Manchester (Meeting Room(",
         "color": "#c18855"
     },
     {
@@ -794,7 +794,7 @@
             -127.0,
             452.0
         ],
-        "text": "B215 LIFE SKILLS",
+        "text": "B215 Cambridge Teacher's Office (Lower Primary)",
         "color": "#64454f"
     },
     {
@@ -808,7 +808,7 @@
             -178.0,
             320.0
         ],
-        "text": "C201 SCIENCE/DEMO CLASS",
+        "text": "C201 AI & STEM Lab (Primary)",
         "color": "#c18855"
     },
     {
@@ -822,7 +822,7 @@
             -178.0,
             276.0
         ],
-        "text": "C202 CLASS 1.4",
+        "text": "C202 Class 1.1",
         "color": "#b95c66"
     },
     {
@@ -836,7 +836,7 @@
             -178.0,
             234.0
         ],
-        "text": "C203 CLASS 1.2",
+        "text": "C203 Class 1.2",
         "color": "#b95c66"
     },
     {
@@ -850,7 +850,7 @@
             -178.0,
             193.0
         ],
-        "text": "C204 CLASS 1.3",
+        "text": "C204 Class 5.2",
         "color": "#b95c66"
     },
     {
@@ -864,7 +864,7 @@
             -178.0,
             151.0
         ],
-        "text": "C205 CLASS 1.4",
+        "text": "C205 Class 5.3",
         "color": "#b95c66"
     },
     {
@@ -920,7 +920,7 @@
             -271.0,
             320.0
         ],
-        "text": "OUTDOOR GYM Edit",
+        "text": "OUTDOOR GYM",
         "color": "#F7EAD0"
     },
     {
@@ -1018,7 +1018,7 @@
             -628.0,
             311.0
         ],
-        "text": "A301 CLASS 8.1",
+        "text": "A301 Class 8.1",
         "color": "#b95c66"
     },
     {
@@ -1032,7 +1032,7 @@
             -628.0,
             267.0
         ],
-        "text": "A302 CLASS 8.2",
+        "text": "A302 Class 8.2",
         "color": "#b95c66"
     },
     {
@@ -1046,7 +1046,7 @@
             -628.0,
             225.0
         ],
-        "text": "A303 CLASS 8.3",
+        "text": "A303 Class 8.3",
         "color": "#b95c66"
     },
     {
@@ -1060,7 +1060,7 @@
             -628.0,
             183.0
         ],
-        "text": "A304 CLASS 8.4",
+        "text": "A304 Class 8.4",
         "color": "#b95c66"
     },
     {
@@ -1074,7 +1074,7 @@
             -628.0,
             142.0
         ],
-        "text": "A305 CLASS 8.5",
+        "text": "A305 Class 8.5",
         "color": "#b95c66"
     },
     {
@@ -1088,7 +1088,7 @@
             -672.0,
             442.0
         ],
-        "text": "B301 PRIMARY TEACHER ROOM",
+        "text": "B301 Cambridge Teacher's Office (Upper Primary)",
         "color": "#871d2f"
     },
     {
@@ -1102,7 +1102,7 @@
             -539.0,
             376.0
         ],
-        "text": "B302 CLASS 7.1",
+        "text": "B302 Class 7.1",
         "color": "#b95c66"
     },
     {
@@ -1116,7 +1116,7 @@
             -628.0,
             442.0
         ],
-        "text": "B303 CLASS 7.4",
+        "text": "B303 Class 7.4",
         "color": "#b95c66"
     },
     {
@@ -1130,7 +1130,7 @@
             -495.0,
             376.0
         ],
-        "text": "B304 CLASS 6.4",
+        "text": "B304 Class 7.2",
         "color": "#b95c66"
     },
     {
@@ -1144,7 +1144,7 @@
             -584.0,
             442.0
         ],
-        "text": "B305 CLASS 7.3",
+        "text": "B305 Class 7.3",
         "color": "#b95c66"
     },
     {
@@ -1158,7 +1158,7 @@
             -450.0,
             376.0
         ],
-        "text": "B306 CLASS 6.3",
+        "text": "B306 Class 6.3",
         "color": "#b95c66"
     },
     {
@@ -1172,7 +1172,7 @@
             -539.0,
             442.0
         ],
-        "text": "B307 CLASS 7.2",
+        "text": "B307 Class 7.2",
         "color": "#b95c66"
     },
     {
@@ -1186,7 +1186,7 @@
             -406.0,
             376.0
         ],
-        "text": "B308 CLASS 6.2",
+        "text": "B308 Class 6.2",
         "color": "#b95c66"
     },
     {
@@ -1214,7 +1214,7 @@
             -361.0,
             376.0
         ],
-        "text": "B310 CLASS 6.1",
+        "text": "B310 Class 6.1",
         "color": "#b95c66"
     },
     {
@@ -1228,7 +1228,7 @@
             -316.0,
             376.0
         ],
-        "text": "CLASS 12A",
+        "text": "B312 Class 7A",
         "color": "#b95c66"
     },
     {
@@ -1270,7 +1270,7 @@
             -138.0,
             442.0
         ],
-        "text": "B315 IGCSE/A-LEVEL TEACHER ROOM",
+        "text": "B315 IGCSE/A-LEVEL TEACHER Office",
         "color": "#871d2f"
     },
     {
@@ -1284,7 +1284,7 @@
             -178.0,
             311.0
         ],
-        "text": "C301 CLASS 6.1",
+        "text": "C301 Class 10B",
         "color": "#64454f"
     },
     {
@@ -1298,7 +1298,7 @@
             -178.0,
             267.0
         ],
-        "text": "C302 CLASS 6.2",
+        "text": "C302 Class 10A",
         "color": "#64454f"
     },
     {
@@ -1312,7 +1312,7 @@
             -178.0,
             225.0
         ],
-        "text": "C303 CLASS 6.3",
+        "text": "C303 Class 9B",
         "color": "#64454f"
     },
     {
@@ -1326,7 +1326,7 @@
             -178.0,
             183.0
         ],
-        "text": "C304 CLASS 6.4",
+        "text": "C304 Class 9A",
         "color": "#64454f"
     },
     {
@@ -1340,7 +1340,7 @@
             -178.0,
             142.0
         ],
-        "text": "C305 CLASS 6.5",
+        "text": "C305 Class 8A",
         "color": "#64454f"
     },
     {
@@ -1354,7 +1354,7 @@
             -177.0,
             489.0
         ],
-        "text": "CLASS 12B",
+        "text": "Class 12B",
         "color": "#b95c66"
     },
     {
@@ -1368,7 +1368,7 @@
             -237.0,
             502.0
         ],
-        "text": "CLASS 11A",
+        "text": "Class 11A",
         "color": "#b95c66"
     },
     {
@@ -1382,7 +1382,7 @@
             -177.0,
             536.0
         ],
-        "text": "B312 CLASS 7A",
+        "text": "Class 12A",
         "color": "#b95c66"
     },
     {
@@ -1494,7 +1494,7 @@
             -628.0,
             312.0
         ],
-        "text": "A401 CLASS 11.1",
+        "text": "A401 Class 12.1",
         "color": "#b95c66"
     },
     {
@@ -1508,7 +1508,7 @@
             -628.0,
             268.0
         ],
-        "text": "A402 CLASS 11.2",
+        "text": "A402 Class 12.2",
         "color": "#b95c66"
     },
     {
@@ -1522,7 +1522,7 @@
             -628.0,
             226.0
         ],
-        "text": "A403 CLASS 11.3",
+        "text": "A403 Class 12.3",
         "color": "#b95c66"
     },
     {
@@ -1536,7 +1536,7 @@
             -628.0,
             184.0
         ],
-        "text": "A404 CLASS G10/G11 OPT 1",
+        "text": "A404 Breakout 7",
         "color": "#b95c66"
     },
     {
@@ -1550,7 +1550,7 @@
             -628.0,
             143.0
         ],
-        "text": "A405 CLASS G10/G11 OPT 2",
+        "text": "A405 Breakout 8",
         "color": "#b95c66"
     },
     {
@@ -1564,7 +1564,7 @@
             -672.0,
             453.0
         ],
-        "text": "B401 ART FOR IGCSE/A-LEVEL",
+        "text": "B401 Art Cambridge",
         "color": "#c18855"
     },
     {
@@ -1578,7 +1578,7 @@
             -539.0,
             377.0
         ],
-        "text": "B402 ACADEMIC EQUIPMENT STOREROOM",
+        "text": "B402 Academic Equipment",
         "color": "#871d2f"
     },
     {
@@ -1592,7 +1592,7 @@
             -628.0,
             453.0
         ],
-        "text": "B403 SECONDARY PASTORAL",
+        "text": "B403 Student Leadership Hub",
         "color": "#c18855"
     },
     {
@@ -1606,7 +1606,7 @@
             -495.0,
             377.0
         ],
-        "text": "B404 CLASS 9.1",
+        "text": "B404 Class 10.1",
         "color": "#b95c66"
     },
     {
@@ -1620,7 +1620,7 @@
             -584.0,
             453.0
         ],
-        "text": "B405 N/A",
+        "text": "B405 Breakout 6",
         "color": "#b95c66"
     },
     {
@@ -1634,7 +1634,7 @@
             -450.0,
             377.0
         ],
-        "text": "B406 CLASS 9.2",
+        "text": "B406 Class 9.3",
         "color": "#b95c66"
     },
     {
@@ -1648,7 +1648,7 @@
             -539.0,
             453.0
         ],
-        "text": "B407 CLASS 10.1",
+        "text": "B407 Class 10.2",
         "color": "#b95c66"
     },
     {
@@ -1662,7 +1662,7 @@
             -406.0,
             377.0
         ],
-        "text": "B408 CLASS 9.3",
+        "text": "B408 Class 9.2",
         "color": "#b95c66"
     },
     {
@@ -1676,7 +1676,7 @@
             -496.0,
             453.0
         ],
-        "text": "B409 CLASS 10.2",
+        "text": "B409 Class 11.3",
         "color": "#b95c66"
     },
     {
@@ -1690,7 +1690,7 @@
             -361.0,
             377.0
         ],
-        "text": "B410 CLASS 9.4",
+        "text": "B410 Class 9.1",
         "color": "#b95c66"
     },
     {
@@ -1704,7 +1704,7 @@
             -450.0,
             453.0
         ],
-        "text": "B411 CAMB OPT 1",
+        "text": "B411 Class 11.2",
         "color": "#b95c66"
     },
     {
@@ -1718,7 +1718,7 @@
             -271.0,
             377.0
         ],
-        "text": "B412 ART FOR SECONDARY",
+        "text": "B412 Art (Secondary)",
         "color": "#c18855"
     },
     {
@@ -1732,7 +1732,7 @@
             -408.0,
             453.0
         ],
-        "text": "B413 CAMB OPT 2",
+        "text": "B413 Class 11.1",
         "color": "#b95c66"
     },
     {
@@ -1746,7 +1746,7 @@
             -361.0,
             453.0
         ],
-        "text": "B415 Makerspace FOR SECONDARY",
+        "text": "B415 ICT (Secondary)",
         "color": "#c18855"
     },
     {
@@ -1760,7 +1760,7 @@
             -272.0,
             453.0
         ],
-        "text": "B417 MAKERSPACE FOR SECONDARY",
+        "text": "B417 AI & STEM Lab (Secondary)",
         "color": "#c18855"
     },
     {
@@ -1774,7 +1774,7 @@
             -177.0,
             537.0
         ],
-        "text": "B419 SECONDARY TEACHER LOUNGE",
+        "text": "B419 Secondary Teacher's Office",
         "color": "#871d2f"
     },
     {
@@ -1788,7 +1788,7 @@
             -127.0,
             453.0
         ],
-        "text": "B421 MUSIC FOR SECONDARY",
+        "text": "B421 Music (Secondary)",
         "color": "#c18855"
     },
     {
@@ -1802,7 +1802,7 @@
             -178.0,
             312.0
         ],
-        "text": "C401 CLASS 12.1",
+        "text": "C401 Breakout 1",
         "color": "#64454f"
     },
     {
@@ -1816,7 +1816,7 @@
             -178.0,
             268.0
         ],
-        "text": "C402 CLASS 12.2",
+        "text": "C402 Breakout 2",
         "color": "#64454f"
     },
     {
@@ -1830,7 +1830,7 @@
             -178.0,
             226.0
         ],
-        "text": "C403 CLASS 12.3",
+        "text": "C403 Breakout 3",
         "color": "#64454f"
     },
     {
@@ -1844,7 +1844,7 @@
             -178.0,
             184.0
         ],
-        "text": "C404 G12 OPT1",
+        "text": "C404 Breakout 4",
         "color": "#64454f"
     },
     {
@@ -1858,7 +1858,7 @@
             -178.0,
             143.0
         ],
-        "text": "C405 G12 OPT2",
+        "text": "C405 Breakout 5",
         "color": "#64454f"
     },
     {
@@ -1944,30 +1944,6 @@
         ],
         "text": "RESTROOM FOR STAFF - L4",
         "color": "#a7a8ab"
-    },
-       {
-        "level": -1,
-        "hatchname": "ANSI31",
-        "points": [
-            [
-                -10,
-                0
-            ],
-            [
-                -20,
-                0
-            ],
-            [
-                -20,
-                10
-            ],
-            [
-                -10,
-                10
-            ]
-        ],
-        "text": "---",
-        "color": "#F7EAD0"
     },
     {
         "level": 0,
