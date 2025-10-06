@@ -42,6 +42,8 @@ function changeFavicon(src) {
 }
 
 function RootApp() {
+  
+
   const [curZ, setCurZ] = useState(-1);
   const isSEDSchool = window.location.href.includes('sed');
   const default_school_routes = isSEDSchool ? school_1_routes: school_2_routes;
@@ -55,6 +57,10 @@ function RootApp() {
   const [destinationSuggestion, setDestinationSuggestion] = useState('');
   const [schoolIndex, setSchoolIndex] = useState( isSEDSchool ? 0 : 1);
   const [clr, setClr] = useState('');
+
+
+
+
 
   document.title = isSEDSchool ? 'SED':'CIS';
   changeFavicon(isSEDSchool ? "/images/LogoSedberghVietnam.png" : "/images/LogoCIS.png");
@@ -122,7 +128,7 @@ function RootApp() {
           schoolIndex = {schoolIndex}
           
           onPinNoteClick={(text, position) => {
-            console.log(text, position, '<Disable>');
+            // console.log(text, position, '<Disable>');
             setCurZ(position[1]);
             setIsActiveDialog(true);
           }}

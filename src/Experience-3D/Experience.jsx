@@ -7,72 +7,12 @@ import { OrthographicCamera, OrbitControls  } from "@react-three/drei";
 import { useResponsiveStore } from "./stores/useResponsiveStore";
 import { useExperienceStore } from "./stores/experienceStore";
 import { SceneStatsCollector, SceneStatistics } from  "./components/SceneStatistics";
-import * as THREE from 'three';
-
-
-function ExportGLTFAfterFirstRender() {
-  const { scene } = useThree();
-  const hasExported = useRef(false);
-
-  useEffect(() => {
-    if (hasExported.current) return; // chỉ export 1 lần
-    hasExported.current = true;
-
-    const exporter = new GLTFExporter();
-
-    exporter.parse(
-      scene,
-      function (result) {
-        const output = JSON.stringify(result, null, 2);
-        const blob = new Blob([output], { type: 'application/json' });
-        const url = URL.createObjectURL(blob);
-
-        const link = document.createElement("a");
-        link.style.display = "none";
-        link.href = url;
-        link.download = "scene.gltf";
-        document.body.appendChild(link);
-        link.click();
-
-        // Cleanup
-        setTimeout(() => {
-          document.body.removeChild(link);
-          URL.revokeObjectURL(url);
-        }, 100);
-      },
-      { binary: false }
-    );
-  }, [scene]);
-
-  return null;
-}
-
-
-
-// function MeshCountLogger() {
-//   const { scene } = useThree();
-
-//   useFrame(() => {
-//     let meshCount = 0;
-//     scene.traverse((object) => {
-//       if (object instanceof THREE.Mesh) {
-//         meshCount++;
-//       }
-//     });
-//     // console.log("Mesh count:", meshCount);
-//   });
-
-//   return null;
-// }
-
 import View3DControl from "./components/View3DControl";
-
 import ThinButton from "./components/Buttons/ThinButton";
-// import { handleCameraDown, handleCameraUp, handleRotateLeft, handleRotateRight, handleZoomOut } from "./components/View3DControl";
+import * as THREE from 'three';
 
 function CameraInfo({ controlsRef, setCameraInfo }) {
   const { camera } = useThree();
-  
 
   useFrame(() => {
     if (!controlsRef.current) return;
@@ -88,8 +28,6 @@ function CameraInfo({ controlsRef, setCameraInfo }) {
   return null;
 }
 
-
-
 function CameraSetup({ cameraRef }) {
   const { camera } = useThree();
   useEffect(() => {
@@ -100,7 +38,7 @@ function CameraSetup({ cameraRef }) {
 
 const Experience = ({ regions, paths, cameraPositions, isRoomSwitched, ...props }) => {
   const [localRoomState, setLocalRoomState] = useState(false);
-
+  
   const [stats, setStats] = useState({
     totalObjects: 0,
     meshCount: 0,
@@ -214,9 +152,8 @@ const Experience = ({ regions, paths, cameraPositions, isRoomSwitched, ...props 
   }, [cameraRef.current, controlsRef.current]);
 
   useEffect(() => {
-  console.log("Camera index changed:", cameraIndex);
-  // animation code
-}, [cameraIndex]);
+    console.log("Camera index changed:", cameraIndex);
+  }, [cameraIndex]);
 
   useEffect(() => {
     // const onPointerMove = (e) => {
@@ -255,10 +192,10 @@ const Experience = ({ regions, paths, cameraPositions, isRoomSwitched, ...props 
     padding: "6px 20px",
     cursor: "pointer",
   };
-  
 
   return (
     <>
+ 
       <Canvas
         style={{
           position: props.position,
@@ -301,11 +238,6 @@ const Experience = ({ regions, paths, cameraPositions, isRoomSwitched, ...props 
           isRoomSwitched  = {localRoomState}
           
           {...props}/>
-          
-          {/* <ExportGLTFAfterFirstRender/> */}
-          {/* <SceneStatsCollector onUpdate={setStats} /> */}
-        {/* <CountMeshes /> */}
-        
       </Canvas>
 
       {/* <SceneStatistics stats={stats} /> */}
@@ -316,23 +248,6 @@ const Experience = ({ regions, paths, cameraPositions, isRoomSwitched, ...props 
           <div style={{width:60}}>
             <View3DControl controlsRef={controlsRef} onCameraDefaultPosition={() => animateCameraToIndex(0)}/>
           </div>
-
-          <div style={{display:'none'}}>
-            <div style={{fontSize:10}}>Camera Position: {cameraInfo.position.join(', ')}</div>
-            <div style={{fontSize:10}}>Camera Target: {cameraInfo.target.join(', ')}</div>
-
-            <div style={{display:'flex',flexDirection:'row',gap:10}} >
-            <ThinButton text="←" onClick={() => {
-                setCameraIndex((prev) => prev > 0 ? prev - 1 : cameraPositions.length - 1);
-              }}
-            />
-            <div style={{fontSize:10}}>{cameraPositions[cameraIndex].name ? cameraPositions[cameraIndex].name : `View ${cameraIndex}`}</div>
-            <ThinButton text="→" onClick={() => {
-                setCameraIndex((prev) => prev > 0 ? prev - 1 : cameraPositions.length - 1);
-              }}
-            />
-          </div>
-        </div>
       </div>
 
       {/* Disable khi bật dialog */}
@@ -348,8 +263,10 @@ const Experience = ({ regions, paths, cameraPositions, isRoomSwitched, ...props 
           }}
         />
       )}
-    </>
-  );
-};
+     
+  
+  </>
+);
+}
 
 export default Experience;

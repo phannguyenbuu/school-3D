@@ -53,7 +53,7 @@ const DropdownWithLabel = ({ onChange, data, title, clr, suggestion }) => {
           }}
         >
           {sortedData.map((item, index) => (
-            <option key={index} value={item}>
+            <option key={`${item}-${index}`} value={item}>
               {item.toUpperCase()}
             </option>
           ))}

@@ -21,22 +21,25 @@ function totalLength(points) {
 }
 
 
-export default function ArrowAlongPath({ points, speed = 0.2 }) {
-  // console.log('Arrow_Length', points, totalLength(points));
+export function ArrowAlongPath({ points, speed = 0.2 }) {
   const count = totalLength(points) / 25;
-  const cones = [];
 
-  for (let i = 0; i < count; i++) {
-    cones.push(
-      <MemoSingleMovingCone
-        key={i}
-        points={points}
-        speed={speed}
-        initialT={i / count}
-        scale={0.01}
-      />
-    );
-  }
+  const cones = React.useMemo(() => {
+    const arr = [];
+    for (let i = 0; i < count; i++) {
+      arr.push(
+        <MemoSingleMovingCone
+          key={i}  // nên thay i bằng giá trị key duy nhất nếu có
+          points={points}
+          speed={speed}
+          initialT={i / count}
+          scale={0.01}
+        />
+      );
+    }
+    return arr;
+  }, [points, speed, count]);
+
   return <>{cones}</>;
 }
 

@@ -5,7 +5,7 @@ import SampleStair from "../models/SampleStair.jsx";
 import RegionCube from "./RegionCube.jsx";
 
 import { computePathHelper, findNearestPointToPath, findNearestPoint } from "../Experience-3D/components/Path/PathFinderHelper.jsx";
-import ArrowAlongPath from "../Experience-3D/components/Path/ArrowAlongPath.jsx";
+import {ArrowAlongPath} from "../Experience-3D/components/Path/ArrowAlongPath.jsx";
 
 export default function SchoolRoutesHelper({ 
   regions,  allRoutes, schoolIndex,
@@ -131,12 +131,11 @@ useEffect(() => {
     
     <Environment preset="city"environmentIntensity={1} backgroundBlurriness={0.8} />
       
-    {sourceItem && destItem && sourceItem.level != -1 && destItem.level != -1 && shortestPath &&
+    {sourceItem && destItem && sourceItem.level != -1
+     && destItem.level != -1 && shortestPath &&
     <MemoArrowAlongPath
       key="moving-cone"
-      // points={[sourceItem.point, destItem.point]} //memoizedShortestPathScaled
-      // points={allRoutes.routes[0].flat().map(p => [p[0],p[1]])}
-      points={shortestPath} //memoizedShortestPathScaled
+      points={shortestPath}
       speed={0.002}
     />}
 

@@ -1,7 +1,7 @@
 import React, { Suspense, useRef, useEffect, useState } from "react";
 import * as THREE from "three";
 import gsap from "gsap";
-import { useVideoTexture, Text, Billboard, Environment   } from "@react-three/drei";
+import { Html, useVideoTexture, Text, Billboard, Environment   } from "@react-three/drei";
 import { useFrame } from "@react-three/fiber";
 import { useToggleRoomStore } from "./stores/toggleRoomStore";
 import ExtrudeSVGs from "./components/ExtrudeMesh";
@@ -63,7 +63,7 @@ const Scene = ({ pointerRef, models, paths, isRoomSwitched, ...props }) => {
 
   return (
     <>
-      <Suspense fallback={null}>
+      <Suspense fallback={<LoadingSpinner/>}>
         {props.children}
         
         {paths && Array.isArray(paths) ? 
@@ -76,3 +76,28 @@ const Scene = ({ pointerRef, models, paths, isRoomSwitched, ...props }) => {
 };
 
 export default Scene;
+
+function LoadingSpinner() {
+  return (
+    <Html center>
+      <div style={{
+        position:'fixed',
+        left: '50vw',
+        border: "24px solid #f3f3f3",
+        borderTop: "12px solid #3498db",
+        borderRight: "6px solid #72b1dbff",
+        borderBottom: "3px solid #80bee7ff",
+        borderRadius: "50%",
+        width: "80px",
+        height: "80px",
+        animation: "spin 1s linear infinite"
+      }} />
+      <style>{`
+        @keyframes spin {
+          0% { transform: rotate(0deg);}
+          100% { transform: rotate(360deg);}
+        }
+      `}</style>
+    </Html>
+  );
+}

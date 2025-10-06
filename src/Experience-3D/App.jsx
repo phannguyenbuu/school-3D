@@ -1,6 +1,6 @@
 import "./App.scss";
 import React, { useRef, useState, useEffect } from "react";
-import RoomToggleButton from "./components/Buttons/RoomToggleButton/RoomToggleButton";
+// import RoomToggleButton from "./components/Buttons/RoomToggleButton/RoomToggleButton";
 import Experience from "./Experience";
 
 import { useResponsiveStore } from "./stores/useResponsiveStore";
@@ -35,7 +35,7 @@ function App({ cameraPositions, title='React App', handleHome, onRoomSwitchChang
 
   return (
     <>
-      <RoomToggleButton handleToggle={handleRoomToggleClick} handleHome={handleHome} />
+      {/* <RoomToggleButton handleToggle={handleRoomToggleClick} handleHome={handleHome} /> */}
       <Overlay />
       <Router />
       <Experience cameraPositions={cameraPositions}
