@@ -20,8 +20,9 @@ function totalLength(points) {
 }
 
 export function ArrowAlongPath({ points, speed = 0.2 }) {
-  const count = Math.floor(totalLength(points) / 25);
-  const tRef = useRef(new Array(count).fill(0));
+  const sc = 0.04;
+  const count = Math.floor(totalLength(points) * sc);
+  const tRef = useRef(new Array(count).fill(0).map((_, i) => i * sc));
   const meshRef = useRef();
 
   const curve = React.useMemo(() => {
@@ -33,14 +34,16 @@ export function ArrowAlongPath({ points, speed = 0.2 }) {
   useFrame((state, delta) => {
     if (!meshRef.current) return;
     const v = speed * delta;
+    
     const tempObject = new THREE.Object3D();
 
     for (let i = 0; i < count; i++) {
       if (isNaN(tRef.current[i]))
-        tRef.current[i] = 0;
+        tRef.current[i] = i * sc;
 
       tRef.current[i] += v;
-      if (tRef.current[i] > 1) tRef.current[i] = 0;
+
+      if (tRef.current[i] > 1) tRef.current[i] -= 1;
 
       const p = curve.getPoint(tRef.current[i]);
       const tangentVec = curve.getTangent(tRef.current[i]).normalize();
@@ -52,7 +55,7 @@ export function ArrowAlongPath({ points, speed = 0.2 }) {
       const quaternion = new THREE.Quaternion().setFromUnitVectors(up, tangentVec);
 
       // Áp quaternion cho tempObject để đối tượng xoay theo tangent vector
-      tempObject.position.copy(p);
+      tempObject.position.copy(new THREE.Vector3(p.x,p.y,p.z));
       tempObject.quaternion.copy(quaternion);
 
       tempObject.scale.set(0.005, 0.01, 0.005);

@@ -136,7 +136,7 @@ useEffect(() => {
     <ArrowAlongPath
       key="moving-cone"
       points={shortestPath}
-      speed={0.2}
+      speed={0.1}
     />}
 
     {region.points && region.points.length > 2 ? 
