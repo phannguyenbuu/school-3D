@@ -45,7 +45,7 @@ function RootApp() {
   
 
   const [curZ, setCurZ] = useState(-1);
-  const isSEDSchool = window.location.href.includes('sed');
+  const isSEDSchool = process.env.REACT_APP_ISSEQ === "1";
   const default_school_routes = isSEDSchool ? school_1_routes: school_2_routes;
   const default_school_data = isSEDSchool ? school_1_data: school_2_data;
   const [regions, setRegions] = useState(default_school_data);
