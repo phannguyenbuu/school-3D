@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect, useRef, useMemo } from "react";
 import { useFrame } from "@react-three/fiber";
 import * as THREE from "three";
 import Arrow from "./Arrow";
@@ -10,7 +10,6 @@ function distance(point1, point2) {
   return Math.sqrt(dx * dx + dy * dy + dz * dz);
 }
 
-
 function totalLength(points) {
   let length = 0;
   for (let i = 0; i < points.length - 1; i++) 
@@ -20,82 +19,54 @@ function totalLength(points) {
   return length;
 }
 
-
 export function ArrowAlongPath({ points, speed = 0.2 }) {
-  const count = totalLength(points) / 25;
-
-  const cones = React.useMemo(() => {
-    const arr = [];
-    for (let i = 0; i < count; i++) {
-      arr.push(
-        <MemoSingleMovingCone
-          key={i}  // nên thay i bằng giá trị key duy nhất nếu có
-          points={points}
-          speed={speed}
-          initialT={i / count}
-          scale={0.01}
-        />
-      );
-    }
-    return arr;
-  }, [points, speed, count]);
-
-  return <>{cones}</>;
-}
-
-
-const MemoSingleMovingCone = React.memo(SingleMovingCone);
-
-// Component single arrow có tRef bắt đầu từ initialT
-export function SingleMovingCone({ points, speed, initialT = 0, scale = 0.01 }) {
-  const ref = useRef();
-  const tRef = useRef(initialT);
-
-  // console.log(points.length);
+  const count = Math.floor(totalLength(points) / 25);
+  const tRef = useRef(new Array(count).fill(0));
+  const meshRef = useRef();
 
   const curve = React.useMemo(() => {
-
     return new THREE.CatmullRomCurve3(points.map(p => p.length === 3 
         ? new THREE.Vector3(-p[0]/100, p[1] + 0.05, p[2]/100) 
         : new THREE.Vector3(-p[0]/100, 0.05, p[1]/100)));
   }, [points]);
 
-  const vec3 = React.useMemo(() => new THREE.Vector3(), []);
-  const tangentVec = React.useMemo(() => new THREE.Vector3(), []);
+  useFrame((state, delta) => {
+    if (!meshRef.current) return;
+    const v = speed * delta;
+    const tempObject = new THREE.Object3D();
 
-  useEffect(() => {
-    tRef.current = initialT;
-  }, [points, initialT]);
+    for (let i = 0; i < count; i++) {
+      if (isNaN(tRef.current[i]))
+        tRef.current[i] = 0;
 
-  useFrame(() => {
-    if (!ref.current) return;
-    tRef.current += speed;
-    if (tRef.current > 1) tRef.current = 0;
+      tRef.current[i] += v;
+      if (tRef.current[i] > 1) tRef.current[i] = 0;
 
-    try {
-      curve.getPoint(tRef.current, vec3);
-      ref.current.position.copy(vec3);
+      const p = curve.getPoint(tRef.current[i]);
+      const tangentVec = curve.getTangent(tRef.current[i]).normalize();
 
-      curve.getTangent(tRef.current, tangentVec).normalize();
-      const angle = Math.atan2(tangentVec.x, tangentVec.z);
-      ref.current.rotation.set(0, angle, 0);
-    } catch (error) {
-      console.error("Error in curve.getPoint or getTangent:", error);
-      // Xử lý lỗi, ví dụ giữ nguyên vị trí hiện tại hoặc reset tRef
-      tRef.current = 0;
+      // Vector "up" mặc định của đối tượng (ví dụ trục Y)
+      const up = new THREE.Vector3(0, 1, 0);
+
+      // Quaternion để quay từ up vector sang tangent vector
+      const quaternion = new THREE.Quaternion().setFromUnitVectors(up, tangentVec);
+
+      // Áp quaternion cho tempObject để đối tượng xoay theo tangent vector
+      tempObject.position.copy(p);
+      tempObject.quaternion.copy(quaternion);
+
+      tempObject.scale.set(0.005, 0.01, 0.005);
+
+      tempObject.updateMatrix();
+      meshRef.current.setMatrixAt(i, tempObject.matrix);
     }
+
+    meshRef.current.instanceMatrix.needsUpdate = true;
   });
 
-
   return (
-    <Arrow
-      ref={ref}
-      args={[0.05, 0.2, 8]}
-      rotation={[0, Math.PI / 2, 0]}
-      scale={scale}
-    >
-      <meshStandardMaterial color="orange" emissive={"white"} emissiveIntensity={10} />
-    </Arrow>
+    <instancedMesh ref={meshRef} args={[new THREE.ConeGeometry(6, 12, 8), null, count]}>
+      <meshStandardMaterial color="red" />
+    </instancedMesh>
   );
 }
-

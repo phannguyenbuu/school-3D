@@ -1,0 +1,50 @@
+
+<script>
+  document.querySelector('form').addEventListener('submit', function(event) {
+    // Hiện loading
+    const loadingDiv = document.getElementById('loading');
+    loadingDiv.style.display = 'block';
+
+    let countdown = 0; // thời gian đếm ngược giây, bạn điều chỉnh
+
+    const countdownSpan = document.getElementById('countdown');
+    countdownSpan.textContent = countdown;
+
+    const interval = setInterval(() => {
+      countdown++;
+      if (countdown <= 0) {
+        clearInterval(interval);
+      } else {
+        countdownSpan.textContent = countdown;
+      }
+    }, 1000);
+  });
+</script>
+
+<script>
+  function switchTab(tab) {
+    const tabs = ['seq', 'cis'];
+    tabs.forEach(t => {
+      document.getElementById('tab_' + t).classList.remove('active');
+      document.getElementById('content_' + t).classList.add('hidden');
+
+    });
+    document.getElementById('tab_' + tab).classList.add('active');
+    document.getElementById('content_' + tab).classList.remove('hidden');
+
+    window.drawShapes(`${tab}TableBody`);
+
+    const url = new URL(window.location);
+    url.searchParams.set('tab', tab);
+    window.history.pushState({}, '', url);
+  }
+</script>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    const activeTab = "{{ active_tab }}";  // Biến Flask truyền vào
+    if (activeTab) {
+      switchTab(activeTab);
+    }
+  });
+</script>

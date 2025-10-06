@@ -64,7 +64,7 @@ export function findNearestPointToPath(pointList, path) {
         path[i + 1][0], path[i + 1][1]
       );
 
-      console.log("Stair", i, dist);
+      // console.log("Stair", i, dist);
 
       if (dist < minDistance) {
         minDistance = dist;
@@ -114,8 +114,8 @@ export function computePathHelper(allRoutes, startPoint, endPoint) {
   const startClosest = findClosestNodeLabel(startPoint, nodesArr, nodeToLabelMap);
   const endClosest = findClosestNodeLabel(endPoint, nodesArr, nodeToLabelMap);
 
-      console.log('allEntryPoints_1', startPoint,startClosest );
-      console.log('allEntryPoints_2', endPoint,endClosest );
+  // console.log('allEntryPoints_1', startPoint,startClosest );
+  // console.log('allEntryPoints_2', endPoint,endClosest );
 
 
   if (!startClosest || !endClosest) {

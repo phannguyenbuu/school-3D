@@ -1,0 +1,61 @@
+<style>
+  body {
+    display: flex;
+    font-family: Arial, sans-serif;
+    font-size: 12px;
+    font-weight: 500;
+    margin: 0;
+    height: 100vh;
+    background-color: #ccc;
+  }
+
+  input, label {
+    padding-top: 5px;
+    padding-bottom: 5px;
+  }
+
+  .sidebar-nav {
+    width: 50vw;
+    min-height: 180px;
+    background: #f4f4f4;
+    border-right: 1px solid #ddd;
+    display: flex;
+    flex-direction: column;
+  }
+  .sidebar-nav div {
+    padding: 15px;
+    border-bottom: 1px solid #ccc;
+    cursor: pointer;
+    user-select: none;
+  }
+  .sidebar-nav .active {
+    background: white;
+    font-weight: bold;
+    border-left: 40px solid #0056b3;
+    border-right: 40px solid #0056b3;
+  }
+
+  .content-area {
+    flex: 1;
+    padding: 15px;
+    overflow-y: auto;
+    
+  }
+
+
+  .hidden {
+    display: none;
+  }
+
+  /* Form grid cho gửi SMS */
+  .form-grid {
+    display: grid;
+    grid-template-columns: 120px 1fr;
+    gap: 8px 16px;
+    align-items: center;
+  }
+
+  table { border-collapse: collapse; width: 100%; border: #ccc; background: #fff}
+  th, td { border: 1px solid #ccc; padding: 8px; font-weight: 500; font-size: 12;}
+  th { background-color: #f2f2f2; font-weight: 500; font-size: 12;}
+</style>

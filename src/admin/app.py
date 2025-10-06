@@ -81,39 +81,23 @@ def add_header(response):
     response.headers["Expires"] = "0"
     return response
    
+@app.route('/')
+@app.route('/<string:id>')
+def index(id=None):
+    if id is None:
+        id = 'default'
+    html = f'index_{id}.html'
 
-@app.route('/', methods=['GET', 'POST'])
-def index():
     parent_dir = os.path.dirname(base_path)
     school_1_path = os.path.join(parent_dir,'models','school_1_room.json')
     school_2_path = os.path.join(parent_dir,'models','school_2_room.json')
 
-    # if request.method == 'POST':
-    #     # Nếu POST từ form update tên phòng
-    #     school_id = request.form.get('school')
-    #     room_id = request.form.get('room_id')
-    #     new_name = request.form.get('new_name')
-
-    #     # Xác định file json tương ứng
-    #     json_file_path = school_1_path if school_id == 'seq' else school_2_path
-
-    #     # Load, sửa dữ liệu
-    #     data = load_json_school(json_file_path)
-    #     for i, room in enumerate(data):
-    #         if str(i) == room_id:
-    #             data[i]['text'] = new_name
-
-    #     # Lưu lại json
-    #     save_json(data, json_file_path)
-
-    # Load lại dữ liệu mới để render
     data_1 = load_json_school(school_1_path)
     data_2 = load_json_school(school_2_path)
 
-    return render_template('index.html', data_1=data_1,
-                           data_1_json= json.dumps(data_1),  
-                           data_2=data_2,
-                           data_2_json= json.dumps(data_2),  )
+    return render_template(html, 
+                           data_1=data_1, data_1_json=json.dumps(data_1),   
+                           data_2=data_2, data_2_json=json.dumps(data_2))
 
 if __name__ == "__main__":
     app.run(debug=True, port=5006, host='0.0.0.0')

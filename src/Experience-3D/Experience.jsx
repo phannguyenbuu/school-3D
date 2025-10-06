@@ -90,7 +90,7 @@ const Experience = ({ regions, paths, cameraPositions, isRoomSwitched, ...props 
   }, [isMobile]);
 
   useEffect(() => {
-    console.log('isDisableInterractive', props.isDisableInterractive);
+    // console.log('isDisableInterractive', props.isDisableInterractive);
   }, [props.isDisableInterractive]);
   
 
@@ -152,15 +152,6 @@ const Experience = ({ regions, paths, cameraPositions, isRoomSwitched, ...props 
   }, [cameraRef.current, controlsRef.current]);
 
   useEffect(() => {
-    console.log("Camera index changed:", cameraIndex);
-  }, [cameraIndex]);
-
-  useEffect(() => {
-    // const onPointerMove = (e) => {
-    //   pointerRef.current.x = (e.clientX / window.innerWidth) * 2 - 10;
-    //   pointerRef.current.y = -(e.clientY / window.innerHeight) * 2 + 10;
-    // };
-
     const onTouchMove = (e) => {
       if (e.touches.length === 1) {
         pointerRef.current.x =

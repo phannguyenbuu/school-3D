@@ -98,7 +98,7 @@ export const dijkstra = (graph, startNode, endNode) => {
 };
 
 export const findShortestPath = (routes, startLabel, endLabel) => {
-  console.log('findShortestPath', routes, startLabel, endLabel);
+  // console.log('findShortestPath', routes, startLabel, endLabel);
   if (!routes || !startLabel || !endLabel) return null;
 
   const graph = buildGraph(routes);

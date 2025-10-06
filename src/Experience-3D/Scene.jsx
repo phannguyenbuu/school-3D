@@ -11,6 +11,7 @@ import { ShapeUtils } from 'three';
 const Scene = ({ pointerRef, models, paths, isRoomSwitched, ...props }) => {
   const [localRoomState, setLocalRoomState] = useState(false);
   
+
     useEffect(() => {
       // Mỗi khi isRoomSwitched thay đổi, cập nhật state local hoặc chạy tác vụ nào đó
       setLocalRoomState(isRoomSwitched);
@@ -78,11 +79,16 @@ const Scene = ({ pointerRef, models, paths, isRoomSwitched, ...props }) => {
 export default Scene;
 
 function LoadingSpinner() {
+  const isMB = () => {
+    return window.innerWidth < 768;
+  }
+
   return (
     <Html center>
       <div style={{
         position:'fixed',
-        left: '50vw',
+        left: isMB()? 440 : 250,
+        top:  isMB()? 0 : -250,
         border: "24px solid #f3f3f3",
         borderTop: "12px solid #3498db",
         borderRight: "6px solid #72b1dbff",

@@ -16,7 +16,7 @@ export default function SchoolRoutesHelper({
   const [shortestPath, setShortestPath]  = useState(null);
   const [levels, setLevels] = useState(new Set([0, 1, 2, 3])); // True = hiện tất cả
   
-  const MemoArrowAlongPath = React.memo(ArrowAlongPath);
+  // const MemoArrowAlongPath = React.memo(ArrowAlongPath);
    
 
   // const pathFinderRef = useRef(null);
@@ -64,7 +64,7 @@ const computedPath = useMemo(() => {
     if (result && result.shortestPath) {
       if (sourceItem.level === destItem.level) {
         ls = result.shortestPath.map(p => [p[0], sourceItem.level * 0.4, p[1]]);
-        console.log('Result=', ls, sourceItem.level, destItem.level);
+        // console.log('Result=', ls, sourceItem.level, destItem.level);
       } else {
         const nearestPoint = findNearestPoint(allRoutes.stair, p1);
 
@@ -133,10 +133,10 @@ useEffect(() => {
       
     {sourceItem && destItem && sourceItem.level != -1
      && destItem.level != -1 && shortestPath &&
-    <MemoArrowAlongPath
+    <ArrowAlongPath
       key="moving-cone"
       points={shortestPath}
-      speed={0.002}
+      speed={0.2}
     />}
 
     {region.points && region.points.length > 2 ? 
