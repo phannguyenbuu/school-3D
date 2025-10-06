@@ -80,23 +80,26 @@ def add_header(response):
     response.headers["Pragma"] = "no-cache"
     response.headers["Expires"] = "0"
     return response
-   
+
 @app.route('/')
-@app.route('/<string:id>')
-def index(id=None):
-    if id is None:
-        id = 'default'
-    html = f'index_{id}.html'
+@app.route('/<path:path>')
+def index(path=None):
+    current_path = request.path  # Lấy đường dẫn URL hiện tại
+
+    if 'cis' in current_path:
+        html = 'index_cis.html'
+    else:
+        html = 'index_sed.html'
 
     parent_dir = os.path.dirname(base_path)
-    school_1_path = os.path.join(parent_dir,'models','school_1_room.json')
-    school_2_path = os.path.join(parent_dir,'models','school_2_room.json')
+    school_1_path = os.path.join(parent_dir, 'models', 'school_1_room.json')
+    school_2_path = os.path.join(parent_dir, 'models', 'school_2_room.json')
 
     data_1 = load_json_school(school_1_path)
     data_2 = load_json_school(school_2_path)
 
-    return render_template(html, 
-                           data_1=data_1, data_1_json=json.dumps(data_1),   
+    return render_template(html,
+                           data_1=data_1, data_1_json=json.dumps(data_1),
                            data_2=data_2, data_2_json=json.dumps(data_2))
 
 if __name__ == "__main__":
