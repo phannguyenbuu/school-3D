@@ -84,7 +84,8 @@ def add_header(response):
 @app.route('/')
 @app.route('/<path:path>')
 def index(path=None):
-    current_path = request.path  # Lấy đường dẫn URL hiện tại
+    current_path = request.path  # Lấy đường dẫn URL hiện 
+    print('path', current_path)
 
     if 'cis' in current_path:
         html = 'index_cis.html'

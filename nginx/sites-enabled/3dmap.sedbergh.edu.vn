@@ -49,6 +49,11 @@ server {
         proxy_cache_bypass $http_upgrade;
     }
 
+    location /static/ {
+        alias /var/www/static/;
+    }
+
+
     location /.well-known/acme-challenge/ {
         root /var/www/3dmap.sedbergh.edu.vn/html; 
         allow all;
