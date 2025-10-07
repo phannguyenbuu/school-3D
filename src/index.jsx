@@ -62,7 +62,7 @@ function RootApp() {
 
 
 
-  document.title = isSEDSchool ? 'SED':'CIS';
+  document.title = isSEDSchool ? '3D Map - Sedbergh Vietnam':'3D Map - CIS';
   changeFavicon(isSEDSchool ? "/images/LogoSedberghVietnam.png" : "/images/LogoCIS.png");
 
   const navigate = useNavigate();
