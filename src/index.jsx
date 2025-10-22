@@ -52,7 +52,13 @@ function RootApp() {
   const [allRoutes, setAllRoutes] = useState(default_school_routes);
   const [IsActiveDialog, setIsActiveDialog] = useState(false);
   const [searchTerm, setSearchTerm] = useState('');
-  const suggestValue = window.location.href.split("&")[0].split("-").pop().toUpperCase();
+
+
+
+  const suggestValue = window.location.href.split("/").filter(Boolean).pop().toUpperCase();
+
+
+  
   const [sourceSuggestion, setSourceSuggestion] = useState(suggestValue);
   const [destinationSuggestion, setDestinationSuggestion] = useState('');
   const [schoolIndex, setSchoolIndex] = useState( isSEDSchool ? 0 : 1);
