@@ -1,0 +1,52 @@
+<script src="https://cdn.jsdelivr.net/npm/qrcode/build/qrcode.min.js"></script>
+
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+    // Lấy các ô chứa mã QR
+    const qrCells = document.querySelectorAll('td.qr-code');
+    
+    qrCells.forEach(async (cell) => {
+        const text = cell.getAttribute('data-room-text') || '';
+        const keyPart = text.split(' ')[0];
+        const url = `${window.location.origin}/${keyPart}`;
+        
+        // Tạo canvas QR code
+        const canvas = document.createElement('canvas');
+        await QRCode.toCanvas(canvas, url, { width: 640 }); // kích thước nhỏ phù hợp ở cột
+        
+        // Xóa nội dung cũ và thêm canvas QR code
+        cell.innerHTML = '';
+        cell.appendChild(canvas);
+        canvas.style.width = '64px';
+        canvas.style.height = '64px';
+        
+        // Thêm sự kiện click mở link trong tab mới
+        cell.style.cursor = 'pointer';
+
+        let isDownloading = false;
+        
+        cell.addEventListener('click', function handler(event) {
+            downloadQRCode(canvas, text);
+        });
+    });
+    });
+
+
+    async function downloadQRCode(canvas, roomName) {
+        // Chuyển canvas thành blob ảnh PNG
+        canvas.toBlob((blob) => {
+            // Tạo URL cho blob
+            const url = URL.createObjectURL(blob);
+            // Tạo link tải xuống
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = `${roomName}.png`; // Tên file download là tên room
+            document.body.appendChild(a);
+            a.click();
+            // Dọn dẹp
+            document.body.removeChild(a);
+            URL.revokeObjectURL(url);
+        }, 'image/png');
+    }
+
+</script>

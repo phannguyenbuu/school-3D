@@ -7,30 +7,34 @@
     <table>
       <thead>
           <tr>
-          <th style="max-width:10px">STT</th>
-          <th style="max-width:10px">Tầng</th>
-          <th style="max-width:50px">Tên phòng hiện tại</th>
-          <th style="max-width:50px">Tên phòng mới</th>
-          <th style="max-width:50px">Màu sắc</th>
+            <th style="max-width:10px">STT</th>
+            <th style="max-width:50px">QR</th>
+            
+            <th style="max-width:50px">Tên phòng hiện tại</th>
+            <th style="max-width:50px">Tên phòng mới</th>
+            <th style="max-width:50px">Màu sắc</th>
+            <th style="max-width:10px">Tầng</th>
           </tr>
       </thead>
       <tbody id="cisTableBody"  data-rooms="{{ data_2_json }}">
-          {% for room in data_2 %}
-          <tr data-room-id="{{ loop.index0 }}">
-            <td>{{ loop.index }}</td>
-            <td class="current-level">{% if room.level==0 %}G{% else %}{{ room.level + 1 }}{% endif %}</td>
-            <td class="current-room-name">{{ room.text }}</td>
-            <td>
-                <span class="editable-text" onclick="editCell(this)">{{ room.text }}</span>
-                <input type="text" class="edit-input" value="{{ room.text }}" 
-                    style="display:none;" onblur="window.saveCell('cis',this)" />
-            </td>
-
-            <td>
-                <div class="cis-color-selector"  data-room-id="{{ loop.index0 }}" style="width:60px;height:15px;background-color:{{ room.color }}"></div>
-            </td>
-          </tr>
-          {% endfor %}
+          {% for room in data_1 %}
+            <tr data-room-id="{{ loop.index0 }}">
+              <td>{{ loop.index }}</td>
+              <td class="qr-code" data-room-text="{{ room.text }}"></td>
+              
+              <td class="current-room-name">{{ room.text }}</td>
+              <td>
+                  <span class="editable-text" onclick="editCell(this)">{{ room.text }}</span>
+                  <input type="text" class="edit-input" value="{{ room.text }}" 
+                      style="display:none;" onblur="window.saveCell('seq',this)" />
+              </td>
+              <td>
+                <div class="seq-color-selector" data-room-id="{{ loop.index0 }}" style="width:60px;height:15px;background-color:{{ room.color }}"></div>
+              </td>
+              
+              <td class="current-level">{% if room.level==0 %}G{% else %}{{ room.level + 1 }}{% endif %}</td>
+            </tr>
+            {% endfor %}
       </tbody>
     </table>
 
@@ -38,3 +42,5 @@
 </form>
 
 <div data-id="cisTableBody-pagination"></div>
+
+{% include 'qr_js.html' %}

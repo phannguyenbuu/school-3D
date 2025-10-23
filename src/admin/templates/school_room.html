@@ -7,18 +7,21 @@
        <table>
         <thead>
             <tr>
-            <th style="max-width:10px">STT</th>
-            <th style="max-width:10px">Tầng</th>
-            <th style="max-width:50px">Tên phòng hiện tại</th>
-            <th style="max-width:50px">Tên phòng mới</th>
-            <th style="max-width:50px">Màu sắc</th>
+                <th style="max-width:10px">STT</th>
+                <th style="max-width:50px">QR</th>
+                
+                <th style="max-width:50px">Tên phòng hiện tại</th>
+                <th style="max-width:50px">Tên phòng mới</th>
+                <th style="max-width:50px">Màu sắc</th>
+                <th style="max-width:10px">Tầng</th>
             </tr>
         </thead>
         <tbody id="seqTableBody" data-rooms="{{ data_1_json }}">
             {% for room in data_1 %}
             <tr data-room-id="{{ loop.index0 }}">
               <td>{{ loop.index }}</td>
-              <td class="current-level">{% if room.level==0 %}G{% else %}{{ room.level + 1 }}{% endif %}</td>
+              <td class="qr-code" data-room-text="{{ room.text }}"></td>
+              
               <td class="current-room-name">{{ room.text }}</td>
               <td>
                   <span class="editable-text" onclick="editCell(this)">{{ room.text }}</span>
@@ -28,6 +31,8 @@
               <td>
                 <div class="seq-color-selector" data-room-id="{{ loop.index0 }}" style="width:60px;height:15px;background-color:{{ room.color }}"></div>
               </td>
+              
+              <td class="current-level">{% if room.level==0 %}G{% else %}{{ room.level + 1 }}{% endif %}</td>
             </tr>
             {% endfor %}
         </tbody>
@@ -38,3 +43,4 @@
 
 <div data-id="seqTableBody-pagination"></div>
 
+{% include 'qr_js.html' %}
