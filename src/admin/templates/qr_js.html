@@ -1,4 +1,5 @@
 <script src="https://cdn.jsdelivr.net/npm/qrcode/build/qrcode.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
 
 <script>
     document.addEventListener('DOMContentLoaded', () => {
@@ -12,6 +13,7 @@
         
         // Tạo canvas QR code
         const canvas = document.createElement('canvas');
+        const ctx = canvas.getContext('2d', { willReadFrequently: true });
         await QRCode.toCanvas(canvas, url, { width: 640 }); // kích thước nhỏ phù hợp ở cột
         
         // Xóa nội dung cũ và thêm canvas QR code
@@ -19,6 +21,16 @@
         cell.appendChild(canvas);
         canvas.style.width = '64px';
         canvas.style.height = '64px';
+
+        const infoDiv = document.createElement('div');
+        infoDiv.style.marginTop = '4px';
+        infoDiv.style.fontSize = '10px';
+        infoDiv.style.textAlign = 'center';
+        infoDiv.style.whiteSpace = 'normal'; // cho xuống dòng nếu cần
+        infoDiv.innerHTML = `<div style="font-size:4px">${keyPart}</div><div style="color:blue;font-size:2px; word-break: break-word;">${url}</div>`;
+
+        cell.appendChild(infoDiv);
+
         
         // Thêm sự kiện click mở link trong tab mới
         cell.style.cursor = 'pointer';
@@ -26,27 +38,28 @@
         let isDownloading = false;
         
         cell.addEventListener('click', function handler(event) {
-            downloadQRCode(canvas, text);
+            downloadCell(cell, keyPart);
         });
     });
     });
 
 
-    async function downloadQRCode(canvas, roomName) {
-        // Chuyển canvas thành blob ảnh PNG
-        canvas.toBlob((blob) => {
-            // Tạo URL cho blob
-            const url = URL.createObjectURL(blob);
-            // Tạo link tải xuống
-            const a = document.createElement('a');
-            a.href = url;
-            a.download = `${roomName}.png`; // Tên file download là tên room
-            document.body.appendChild(a);
-            a.click();
-            // Dọn dẹp
-            document.body.removeChild(a);
-            URL.revokeObjectURL(url);
+    function downloadCell(cell, roomName) {
+    html2canvas(cell, { scale: 10 }).then(canvas => {
+        canvas.toBlob(blob => {
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        a.href = url;
+
+
+
+        a.download = `${window.location.origin.includes("cis")?"cis":"sedbergh"}_${roomName}.png`;
+        document.body.appendChild(a);
+        a.click();
+        document.body.removeChild(a);
+        URL.revokeObjectURL(url);
         }, 'image/png');
+    });
     }
 
 </script>
