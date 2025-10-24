@@ -115,8 +115,8 @@ function RootApp() {
 
   useEffect(() => {
     setClr(schoolIndex === 0 ? '#ab9572':'#7c1819');
-    document.title = schoolIndex ? '3D Map - Sedbergh Vietnam':'3D Map - CIS';
-    changeFavicon(schoolIndex ? "/images/LogoSedberghVietnam.png" : "/images/LogoCIS.png");
+    document.title = schoolIndex == 0 ? '3D Map - Sedbergh Vietnam':'3D Map - CIS';
+    changeFavicon(schoolIndex == 0 ? "/images/LogoSedberghVietnam.png" : "/images/LogoCIS.png");
   }, [schoolIndex]);
 
   return (
