@@ -66,7 +66,7 @@ function RootApp() {
 
 
   useEffect(() => {
-    console.log("isSEDSchool", isSEDSchool);
+    console.log("isSEDSchool", isSEDSchool, "current", process.env.REACT_APP_ISSEQ);
   },[isSEDSchool]);
 
 
