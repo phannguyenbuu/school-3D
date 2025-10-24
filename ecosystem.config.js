@@ -24,7 +24,7 @@ module.exports = {
         HOST:'0.0.0.0',
         DANGEROUSLY_DISABLE_HOST_CHECK:true,
         GENERATE_SOURCEMAP:false,
-        REACT_APP_ISSEQ:1
+        REACT_APP_ISSEQ:'1'
       },
       autorestart: true,
       watch: false,
