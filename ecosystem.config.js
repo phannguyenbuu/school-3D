@@ -2,10 +2,12 @@ module.exports = {
   apps: [
     {
       name: 'school3D',
-      script: './start-serve-3006.sh', // hoặc script shell bạn cần chạy
-      interpreter: '/bin/bash', // dùng bash để chạy shell script
+      script: 'serve',          // gọi lệnh serve trực tiếp
+      args: ['-s', 'build'],    // tham số serve phục vụ thư mục build
       env: {
-        PORT: 3006,
+        PM2_SERVE_PORT: 3006,   // port serve qua biến môi trường PM2
+        PM2_SERVE_PATH: 'build',
+        PM2_SERVE_SPA: 'true',  // phục vụ SPA, redirect về index.html
         NODE_ENV: 'production',
         HOST:'0.0.0.0',
         DANGEROUSLY_DISABLE_HOST_CHECK:true,
@@ -16,10 +18,12 @@ module.exports = {
     },
     {
       name: 'school3D-SEQ',
-      script: './start-serve-3007.sh',
-      interpreter: '/bin/bash',
+      script: 'serve',
+      args: ['-s', 'build'],
       env: {
-        PORT: 3007,
+        PM2_SERVE_PORT: 3007,
+        PM2_SERVE_PATH: 'build',
+        PM2_SERVE_SPA: 'true',
         NODE_ENV: 'production',
         HOST:'0.0.0.0',
         DANGEROUSLY_DISABLE_HOST_CHECK:true,
@@ -29,5 +33,6 @@ module.exports = {
       autorestart: true,
       watch: false,
     }
-  ],
+  ]
 };
+
