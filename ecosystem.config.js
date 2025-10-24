@@ -7,7 +7,9 @@ module.exports = {
       env: {
         PORT: 3006,
         NODE_ENV: 'production',
-        // thêm các biến môi trường khác nếu cần
+        HOST:'0.0.0.0',
+        DANGEROUSLY_DISABLE_HOST_CHECK:true,
+        GENERATE_SOURCEMAP:false,
       },
       autorestart: true,
       watch: false,
@@ -19,6 +21,10 @@ module.exports = {
       env: {
         PORT: 3007,
         NODE_ENV: 'production',
+        HOST:'0.0.0.0',
+        DANGEROUSLY_DISABLE_HOST_CHECK:true,
+        GENERATE_SOURCEMAP:false,
+        REACT_APP_ISSEQ:1
       },
       autorestart: true,
       watch: false,
