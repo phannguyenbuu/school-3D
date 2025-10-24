@@ -65,7 +65,9 @@ function RootApp() {
   const [clr, setClr] = useState('');
 
 
-
+  useEffect(() => {
+    console.log("isSEDSchool", isSEDSchool);
+  },[isSEDSchool]);
 
 
   document.title = isSEDSchool ? '3D Map - Sedbergh Vietnam':'3D Map - CIS';
