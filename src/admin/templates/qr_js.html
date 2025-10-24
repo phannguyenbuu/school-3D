@@ -50,9 +50,6 @@
         const url = URL.createObjectURL(blob);
         const a = document.createElement('a');
         a.href = url;
-
-
-
         a.download = `${window.location.origin.includes("cis")?"cis":"sedbergh"}_${roomName}.png`;
         document.body.appendChild(a);
         a.click();
