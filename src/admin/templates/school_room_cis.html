@@ -1,13 +1,11 @@
-<button id="downloadAllQr" type="button">
-  Download All QR
-</button>
-
 <form method="POST" action="{{ url_for('index') }}">
       <input type="search" data-id="cisTableBody-searchInput" placeholder="Tìm theo tên phòng hiện tại..." 
        onkeyup="window.filterTable('cisTableBody')" 
        oninput="window.filterTable('cisTableBody')" 
        style="margin-bottom:10px; width: 300px; padding: 5px;" />
-    
+    <button id="downloadAllQr" type="button">
+      Download All QR
+    </button>
 
     <table>
       <thead>
