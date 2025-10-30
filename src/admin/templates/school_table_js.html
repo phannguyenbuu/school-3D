@@ -14,7 +14,7 @@ window.saveCell = (schoolId, input) => {
   const roomId = tr.getAttribute('data-room-id');
 
   // Gửi dữ liệu mới về backend qua fetch API
-  fetch('/update-room-name', {
+  fetch('/admin/update-room-name', {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({ school:schoolId, id: roomId, new_name: newVal })
@@ -162,7 +162,7 @@ window.filterTable = (tableId) => {
   }
 
   function updateRoomColor(schoolId, roomId, color) {
-    fetch('/update-room-color', {
+    fetch('/admin/update-room-color', {
       method: 'POST',
       headers: {'Content-Type': 'application/json'},
       body: JSON.stringify({school:schoolId, id: roomId, color})
