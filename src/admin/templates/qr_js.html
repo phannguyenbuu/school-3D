@@ -59,4 +59,46 @@
     });
     }
 
+
+
+    document.getElementById("downloadAllQr").addEventListener("click", async () => {
+        const qrCells = document.querySelectorAll('td.qr-code');
+        const zip = new JSZip();
+
+        for(let i=0; i<qrCells.length; i++) {
+            const cell = qrCells[i];
+            const roomText = cell.getAttribute('data-room-text');
+            cell.innerHTML = ""; // Xóa nội dung để tạo QR mới
+
+            // Tạo QR code vào cell
+            new QRCode(cell, {
+            text: `${window.location.origin}/${roomText}`,
+            width: 128,
+            height: 128,
+            correctLevel : QRCode.CorrectLevel.H
+            });
+
+            // Đợi QR code tạo xong (canvas)
+            await new Promise(resolve => setTimeout(resolve, 300));
+
+            // Lấy canvas
+            const canvas = cell.querySelector('canvas');
+            if(!canvas) continue;
+
+            // Convert canvas thành blob
+            const blob = await new Promise(resolve => canvas.toBlob(resolve));
+
+            // Thêm blob vào zip
+            zip.file(`${roomText}.png`, blob);
+
+            // Xóa QR code khỏi cell nếu cần
+            cell.innerHTML = '';
+        }
+
+        // Tạo file zip và trigger download
+        zip.generateAsync({type:"blob"}).then(content => {
+            saveAs(content, "qr_codes.zip");
+        });
+    });
+
 </script>
