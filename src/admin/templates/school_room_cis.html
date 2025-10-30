@@ -29,10 +29,10 @@
               <td>
                   <span class="editable-text" onclick="editCell(this)">{{ room.text }}</span>
                   <input type="text" class="edit-input" value="{{ room.text }}" 
-                      style="display:none;" onblur="window.saveCell('seq',this)" />
+                      style="display:none;" onblur="window.saveCell('cis',this)" />
               </td>
               <td>
-                <div class="seq-color-selector" data-room-id="{{ loop.index0 }}" style="width:60px;height:15px;background-color:{{ room.color }}"></div>
+                <div class="cis-color-selector" data-room-id="{{ loop.index0 }}" style="width:60px;height:15px;background-color:{{ room.color }}"></div>
               </td>
               
               <td class="current-level">{% if room.level==0 %}G{% else %}{{ room.level + 1 }}{% endif %}</td>

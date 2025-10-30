@@ -25,7 +25,7 @@ def update_room_color():
    
     parent_dir = os.path.dirname(base_path)
     json_file_path = os.path.join(parent_dir,'models',
-                            'school_1_room.json' if school_id == 'seq' else 'school_2_room.json')
+                            'school_1_room.json' if school_id == 'sed' else 'school_2_room.json')
     
 
     # print(school_id, room_id, color, json_file_path)
@@ -49,7 +49,7 @@ def update_room_name():
    
     parent_dir = os.path.dirname(base_path)
     json_file_path = os.path.join(parent_dir,'models',
-                            'school_1_room.json' if school_id == 'seq' else 'school_2_room.json')
+                            'school_1_room.json' if school_id == 'sed' else 'school_2_room.json')
     data = load_json_school(json_file_path, exclude_empty = False)
 
     for i,room in enumerate(data):
@@ -93,8 +93,8 @@ def index(path=None):
         html = 'index_sed.html'
 
     parent_dir = os.path.dirname(base_path)
-    school_1_path = os.path.join(parent_dir, 'models', 'school_1_room.json')
-    school_2_path = os.path.join(parent_dir, 'models', 'school_2_room.json')
+    school_1_path = os.path.join(parent_dir, 'models', 'school_1_room.json') # SED
+    school_2_path = os.path.join(parent_dir, 'models', 'school_2_room.json') # CIS
 
     data_1 = load_json_school(school_1_path)
     data_2 = load_json_school(school_2_path)

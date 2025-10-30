@@ -146,7 +146,7 @@ window.filterTable = (tableId) => {
 
     // Khởi tạo hiển thị trang đầu tiên
     document.addEventListener('DOMContentLoaded', () => {
-        window.showPage('seqTableBody', 1);
+        window.showPage('sedTableBody', 1);
         window.showPage('cisTableBody', 1);
     });
 </script>
@@ -195,15 +195,15 @@ window.filterTable = (tableId) => {
       document.querySelectorAll("[type='color']").forEach(el => el.style.display = 'none');
 
       // Gửi màu mới về backend giống cách bạn cập nhật tên phòng (ví dụ AJAX fetch)
-      updateRoomColor(tableId.includes('seq') ? 'seq': 'cis', div.getAttribute('data-room-id'), newColor);
+      updateRoomColor(tableId.includes('sed') ? 'sed': 'cis', div.getAttribute('data-room-id'), newColor);
     };
   }
 
   document.addEventListener('DOMContentLoaded', () => {
-    document.querySelectorAll('.seq-color-selector').forEach(div => {
+    document.querySelectorAll('.sed-color-selector').forEach(div => {
       // console.log('div', div);
       div.addEventListener('click', () => {
-        triggerPickColor('seqTableBody', div);
+        triggerPickColor('sedTableBody', div);
         
       });
     });
