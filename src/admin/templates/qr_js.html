@@ -111,7 +111,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 console.error('Canvas toBlob returned null blob, skipping.');
                 continue;
             }
-            zip.file(`${roomText}.png`, blob);
+            zip.file(`${keyPart}.png`, blob);
 
             // Xóa tempDiv sau khi dùng xong
             document.body.removeChild(tempDiv);
