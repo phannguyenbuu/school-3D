@@ -32,7 +32,6 @@ document.addEventListener('DOMContentLoaded', () => {
         infoDiv.innerHTML = `<div style="font-size:4px">${keyPart}</div><div style="color:blue;font-size:2px; word-break: break-word;">${url}</div>`;
 
         cell.appendChild(infoDiv);
-
         
         // Thêm sự kiện click mở link trong tab mới
         cell.style.cursor = 'pointer';
@@ -62,48 +61,53 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     document.addEventListener('click', async (event) => {
-        if(event.target && event.target.id === 'downloadAllQr') {
-            event.preventDefault();
-            const qrCells = document.querySelectorAll('td.qr-code');
-            console.log('qrCells:', qrCells.length);
-            const zip = new JSZip();
+    if(event.target && event.target.id === 'downloadAllQr') {
+        event.preventDefault();
+        const qrCells = document.querySelectorAll('td.qr-code');
+        console.log('qrCells:', qrCells.length);
+        const zip = new JSZip();
 
-            for(let i=0; i<qrCells.length; i++) {
-                console.log("process",i * 100/qrCells.length);
-                const cell = qrCells[i];
-                const roomText = cell.getAttribute('data-room-text');
-                cell.innerHTML = ""; // Xóa nội dung để tạo QR mới
+        for(let i=0; i<qrCells.length; i++) {
+            console.log("process", i * 100/qrCells.length);
+            const cell = qrCells[i];
+            const roomText = cell.getAttribute('data-room-text');
 
-                // Tạo QR code vào cell
-                new QRCode(cell, {
-                text: `${window.location.origin}/${roomText}`,
-                width: 128,
-                height: 128,
-                correctLevel : QRCode.CorrectLevel.H
-                });
+            // Tạo div ẩn ngoài DOM chính để render QR code
+            const tempDiv = document.createElement('div');
+            tempDiv.style.position = 'absolute';
+            tempDiv.style.left = '-9999px';
+            document.body.appendChild(tempDiv);
 
-                // Đợi QR code tạo xong (canvas)
-                await new Promise(resolve => setTimeout(resolve, 300));
+            const text = cell.getAttribute('data-room-text') || '';
+            const keyPart = text.split(' ')[0];
+            const url = `${window.location.origin}/${keyPart}`;
 
-                // Lấy canvas
-                const canvas = cell.querySelector('canvas');
-                if(!canvas) continue;
+            await QRCode.toCanvas(tempDiv, url, { width: 256 });
 
-                // Convert canvas thành blob
-                const blob = await new Promise(resolve => canvas.toBlob(resolve));
-
-                // Thêm blob vào zip
-                zip.file(`${roomText}.png`, blob);
-
-                // Xóa QR code khỏi cell nếu cần
-                cell.innerHTML = '';
+            // Lấy canvas trong div tạm
+            const canvas = tempDiv.querySelector('canvas');
+            if(!canvas) {
+                document.body.removeChild(tempDiv);
+                continue;
             }
 
-            // Tạo file zip và trigger download
-            zip.generateAsync({type:"blob"}).then(content => {
-                saveAs(content, "qr_codes.zip");
-            });
+            // Chuyển canvas thành Blob
+            const blob = await new Promise(resolve => canvas.toBlob(resolve));
+
+            // Thêm file ảnh vào zip
+            zip.file(`${roomText}.png`, blob);
+
+            // Xóa tempDiv sau khi dùng xong
+            document.body.removeChild(tempDiv);
         }
-    });
+
+        // Tạo file zip Blob và trigger tải về
+        const content = await zip.generateAsync({type:"blob"});
+        saveAs(content, "qr_codes.zip");
+
+        console.log('Download triggered');
+    }
+});
+
 });
 </script>
