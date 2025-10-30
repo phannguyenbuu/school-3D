@@ -29,7 +29,7 @@ export default function SearchDialog({open, setOpen, clr, onSearchChange,schoolI
   const [results, setResults] = useState([]);
 
   useEffect(() => {
-    console.log('textfiled', textFieldRef.current);
+    // console.log('textfiled', textFieldRef.current);
     if (open && textFieldRef.current) {
       const timer = setTimeout(() => {
         textFieldRef.current.focus();

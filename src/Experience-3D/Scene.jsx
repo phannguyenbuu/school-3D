@@ -15,7 +15,7 @@ const Scene = ({ pointerRef, models, paths, isRoomSwitched, ...props }) => {
     useEffect(() => {
       // Mỗi khi isRoomSwitched thay đổi, cập nhật state local hoặc chạy tác vụ nào đó
       setLocalRoomState(isRoomSwitched);
-      console.log('****Scene');
+      // console.log('****Scene');
       // Hoặc chạy các side-effect khác bạn cần (ví dụ đổi texture, bật tắt room mode)
     }, [isRoomSwitched]);
 

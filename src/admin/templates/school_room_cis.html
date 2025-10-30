@@ -20,7 +20,7 @@
           </tr>
       </thead>
       <tbody id="cisTableBody"  data-rooms="{{ data_2_json }}">
-          {% for room in data_1 %}
+          {% for room in data_2 %}
             <tr data-room-id="{{ loop.index0 }}">
               <td>{{ loop.index }}</td>
               <td class="qr-code" data-room-text="{{ room.text }}"></td>
