@@ -67,6 +67,7 @@
 
         event.preventDefault();
         const qrCells = document.querySelectorAll('td.qr-code');
+        console.log('qrCells:', qrCells.length);
         const zip = new JSZip();
 
         for(let i=0; i<qrCells.length; i++) {
