@@ -64,11 +64,13 @@ document.addEventListener('DOMContentLoaded', () => {
     if(event.target && event.target.id === 'downloadAllQr') {
         event.preventDefault();
         const qrCells = document.querySelectorAll('td.qr-code');
-        console.log('qrCells:', qrCells.length);
+        // console.log('qrCells:', qrCells.length);
         const zip = new JSZip();
 
         for(let i=0; i<qrCells.length; i++) {
-            console.log("process", i * 100/qrCells.length);
+            const percent = (i * 100 / qrCells.length).toFixed(2);
+            event.target.textContent = `Downloading ...${percent}%`;
+
             const cell = qrCells[i];
             const roomText = cell.getAttribute('data-room-text');
 
@@ -103,7 +105,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         // Tạo file zip Blob và trigger tải về
         const content = await zip.generateAsync({type:"blob"});
-        saveAs(content, "qr_codes.zip");
+        saveAs(content, `qr_codes_${window.location.origin}.zip`);
 
         console.log('Download triggered');
     }
