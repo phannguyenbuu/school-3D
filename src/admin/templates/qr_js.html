@@ -66,6 +66,7 @@
         const zip = new JSZip();
 
         for(let i=0; i<qrCells.length; i++) {
+            console.log("process",i * 100/qrCells.length);
             const cell = qrCells[i];
             const roomText = cell.getAttribute('data-room-text');
             cell.innerHTML = ""; // Xóa nội dung để tạo QR mới
