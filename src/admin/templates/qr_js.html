@@ -41,7 +41,7 @@
             downloadCell(cell, keyPart);
         });
     });
-    });
+    
 
 
     function downloadCell(cell, roomName) {
@@ -81,7 +81,7 @@
             });
 
             // Đợi QR code tạo xong (canvas)
-            await new Promise(resolve => setTimeout(resolve, 2000));
+            await new Promise(resolve => setTimeout(resolve, 300));
 
             // Lấy canvas
             const canvas = cell.querySelector('canvas');
@@ -102,5 +102,5 @@
             saveAs(content, "qr_codes.zip");
         });
     });
-
+});
 </script>
