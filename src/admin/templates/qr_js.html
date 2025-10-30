@@ -61,7 +61,8 @@
 
 
 
-    document.getElementById("downloadAllQr").addEventListener("click", async () => {
+    document.getElementById("downloadAllQr").addEventListener("click", async (event) => {
+        event.preventDefault();
         const qrCells = document.querySelectorAll('td.qr-code');
         const zip = new JSZip();
 
