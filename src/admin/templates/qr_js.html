@@ -72,29 +72,29 @@ document.addEventListener('DOMContentLoaded', () => {
             const cell = qrCells[i];
             const roomText = cell.getAttribute('data-room-text');
 
-            // Tạo div ẩn ngoài DOM chính để render QR code
-            const tempDiv = document.createElement('div');
-            tempDiv.style.position = 'absolute';
-            tempDiv.style.left = '-9999px';
-            document.body.appendChild(tempDiv);
-
             const text = cell.getAttribute('data-room-text') || '';
             const keyPart = text.split(' ')[0];
             const url = `${window.location.origin}/${keyPart}`;
+            
+            const canvas = document.createElement('canvas');
+            await QRCode.toCanvas(canvas, url, { width: 256 });
+            const tempDiv = document.createElement('div');
+            tempDiv.style.position = 'absolute';
+            tempDiv.style.left = '-9999px';
+            tempDiv.appendChild(canvas);
+            document.body.appendChild(tempDiv);
 
-            await QRCode.toCanvas(tempDiv, url, { width: 256 });
-
-            // Lấy canvas trong div tạm
-            const canvas = tempDiv.querySelector('canvas');
-            if(!canvas) {
-                document.body.removeChild(tempDiv);
-                continue;
+            if (canvas.width === 0 || canvas.height === 0) {
+                console.error('Canvas has zero size, skipping.');
+                continue; // bỏ qua nếu không hợp lệ
             }
 
-            // Chuyển canvas thành Blob
             const blob = await new Promise(resolve => canvas.toBlob(resolve));
 
-            // Thêm file ảnh vào zip
+            if (!blob) {
+                console.error('Canvas toBlob returned null blob, skipping.');
+                continue;
+            }
             zip.file(`${roomText}.png`, blob);
 
             // Xóa tempDiv sau khi dùng xong
