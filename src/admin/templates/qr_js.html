@@ -64,7 +64,6 @@ document.addEventListener('DOMContentLoaded', () => {
         const btn = document.getElementById('downloadAllQr');
         console.log('Button:', btn);  // Kiểm tra nút có được tìm thấy không
         btn.addEventListener('click', async (event) => {
-
             event.preventDefault();
             const qrCells = document.querySelectorAll('td.qr-code');
             console.log('qrCells:', qrCells.length);
