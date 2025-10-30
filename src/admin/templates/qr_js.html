@@ -68,7 +68,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const zip = new JSZip();
 
         for(let i=0; i<qrCells.length; i++) {
-            const percent = (i * 100 / qrCells.length).toFixed(2);
+            const percent = (i * 100 / qrCells.length).toFixed(0);
             event.target.textContent = `Downloading ...${percent}%`;
 
             const cell = qrCells[i];
@@ -80,10 +80,24 @@ document.addEventListener('DOMContentLoaded', () => {
             
             const canvas = document.createElement('canvas');
             await QRCode.toCanvas(canvas, url, { width: 256 });
+
+
+            const ctx = canvas.getContext('2d');
+
+            // Căn chỉnh vị trí text bạn muốn vẽ thêm bên dưới hoặc trên QR code
+            ctx.font = '16px Arial';
+            ctx.fillStyle = 'blue';
+            ctx.textAlign = 'center';
+
+            // Vẽ chữ bên dưới hoặc trên QR (ví dụ dưới đáy canvas)
+            ctx.fillText(url, canvas.width / 2, canvas.height - 10);
+
             const tempDiv = document.createElement('div');
             tempDiv.style.position = 'absolute';
             tempDiv.style.left = '-9999px';
             tempDiv.appendChild(canvas);
+            
+            
             document.body.appendChild(tempDiv);
 
             if (canvas.width === 0 || canvas.height === 0) {
@@ -102,6 +116,8 @@ document.addEventListener('DOMContentLoaded', () => {
             // Xóa tempDiv sau khi dùng xong
             document.body.removeChild(tempDiv);
         }
+
+        event.target.textContent = `Download QR`;
 
         // Tạo file zip Blob và trigger tải về
         const content = await zip.generateAsync({type:"blob"});
