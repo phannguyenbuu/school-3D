@@ -59,11 +59,8 @@ document.addEventListener('DOMContentLoaded', () => {
     });
     }
 
-
-    setTimeout(() => {
-        const btn = document.getElementById('downloadAllQr');
-        console.log('Button:', btn);  // Kiểm tra nút có được tìm thấy không
-        btn.addEventListener('click', async (event) => {
+    document.addEventListener('click', async (event) => {
+        if(event.target && event.target.id === 'downloadAllQr') {
             event.preventDefault();
             const qrCells = document.querySelectorAll('td.qr-code');
             console.log('qrCells:', qrCells.length);
@@ -104,7 +101,7 @@ document.addEventListener('DOMContentLoaded', () => {
             zip.generateAsync({type:"blob"}).then(content => {
                 saveAs(content, "qr_codes.zip");
             });
-        });
-    }, 2000);
+        }
+    });
 });
 </script>
