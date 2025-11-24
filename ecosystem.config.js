@@ -19,10 +19,10 @@ module.exports = {
     {
       name: 'school3D-SEQ',
       script: 'serve',
-      args: ['-s', 'build'],
+      args: ['-s', 'build_seq1'],
       env: {
         PM2_SERVE_PORT: 3007,
-        PM2_SERVE_PATH: 'build',
+        PM2_SERVE_PATH: 'build_seq1',
         PM2_SERVE_SPA: 'true',
         NODE_ENV: 'production',
         HOST:'0.0.0.0',
