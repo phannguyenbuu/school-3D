@@ -6,7 +6,7 @@ from datetime import datetime
 import sys, os
 import json
 
-base_path = os.path.abspath(".")
+base_path = os.path.dirname(os.path.abspath(__file__))
 
 app = Flask(__name__,
             template_folder=os.path.join(base_path, "templates"),
