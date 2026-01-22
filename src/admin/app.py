@@ -87,10 +87,13 @@ def index(path=None):
     current_path = request.url  # Lấy đường dẫn URL hiện 
     print('path', current_path)
 
-    if 'cis' in current_path:
+    is_cis = 'cis' in current_path
+    if is_cis:
         html = 'index_cis.html'
+        active_tab = 'cis'
     else:
         html = 'index_sed.html'
+        active_tab = 'seq'
 
     parent_dir = os.path.dirname(base_path)
     school_1_path = os.path.join(parent_dir, 'models', 'school_1_room.json') # SED
@@ -101,7 +104,8 @@ def index(path=None):
 
     return render_template(html,
                            data_1=data_1, data_1_json=json.dumps(data_1),
-                           data_2=data_2, data_2_json=json.dumps(data_2))
+                           data_2=data_2, data_2_json=json.dumps(data_2),
+                           active_tab=active_tab)
 
 if __name__ == "__main__":
     app.run(debug=True, port=5006, host='0.0.0.0')

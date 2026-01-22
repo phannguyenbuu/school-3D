@@ -177,6 +177,11 @@
 };
 
 document.addEventListener('DOMContentLoaded', () => {
+    const activeTab = document.querySelector('.sidebar-nav .active');
+    if (activeTab && activeTab.id === 'tab_cis') {
+        window.drawShapes('cisTableBody');
+        return;
+    }
     window.drawShapes('sedTableBody');
 });
 
