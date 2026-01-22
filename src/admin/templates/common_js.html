@@ -32,7 +32,8 @@
     document.getElementById('tab_' + tab).classList.add('active');
     document.getElementById('content_' + tab).classList.remove('hidden');
 
-    window.drawShapes(`${tab}TableBody`);
+    const tableId = tab === 'seq' ? 'sedTableBody' : 'cisTableBody';
+    window.drawShapes(tableId);
 
     const url = new URL(window.location);
     url.searchParams.set('tab', tab);
