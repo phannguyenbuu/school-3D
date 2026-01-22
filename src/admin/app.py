@@ -10,7 +10,8 @@ base_path = os.path.dirname(os.path.abspath(__file__))
 
 app = Flask(__name__,
             template_folder=os.path.join(base_path, "templates"),
-            static_folder=os.path.join(base_path, "static"))
+            static_folder=os.path.join(base_path, "static"),
+            static_url_path="/admin/static")
 
 @app.route('/data_ready')
 def data_ready():
